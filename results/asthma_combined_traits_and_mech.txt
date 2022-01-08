@@ -1,0 +1,1156 @@
+trait	level	snp	gene	ensembl_gene_id
+Post bronchodilator FEV1/FVC ratio	+1	rs2656065	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs28395178	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs2009746	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs7359276	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs2568488	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs2036533	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs951266	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs2568497	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs1964678	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs7170068	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs12593950	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs8040868	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs576982	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs2938670	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs12441426	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs7164594	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs2089162	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs2915695	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs569207	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs28437878	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs667282	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs140330585	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs12901913	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs938682	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs35212593	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs11634351	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs8042849	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs1711731	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs17486195	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs11072790	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs12904234	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs12441354	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs72738786	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs4243084	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs3813570	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs4887069	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs17487223	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs2036534	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs4886579	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs3825845	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs72740964	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs8042238	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs8039449	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs11633958	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs34138960	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs12592111	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs931794	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs1051730	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs7169584	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs12899135	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs684513	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs16969968	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs2568499	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs2456020	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs2568490	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs113352275	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs2869566	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs2036529	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs4362358	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs10851907	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs55958997	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs17483686	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs56219465	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs6495309	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs28534575	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs55853698	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs503464	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs55781567	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs4886587	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs58365910	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs72738704	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs1504549	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs28669908	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs2656073	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs17483929	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs10851906	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs12439240	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs12914385	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs34664138	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs7173514	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs35583595	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs2656071	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs7177514	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs12441088	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs72738718	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs7181486	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs4887087	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs4887086	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs2656074	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs4886580	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs72740955	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs7172118	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs11858836	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs7163730	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs17483721	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs2568494	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs2869548	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs28498264	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs74925218	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs637137	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs72738736	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs4886586	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs2958719	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs55983731	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs8034191	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs1504550	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs4299116	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs9788682	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs8043227	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs11857532	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs12594711	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs11639372	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs59133824	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs1062980	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs16969894	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs7174348	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs4887077	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs12916801	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs7180002	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs4887059	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs34684276	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs11637630	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs4887057	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs8031948	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs72743158	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs13329271	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs2036527	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs17484524	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs61204066	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs8192482	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs4887067	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs59683676	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs1996371	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs17483548	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs8042260	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs11072785	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs6495308	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs4887072	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs905739	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs17405217	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs12593229	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs12910627	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs1317286	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs55676755	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs664172	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs11638372	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs11629637	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs1394371	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs2938671	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs12910910	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs12903295	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs4887053	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs10519203	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs12438659	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs17486278	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs2869045	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs56117933	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs17484235	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs2938674	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs9788721	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs1021071	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs924840	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs2656056	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs72743199	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs2656052	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio	+1	rs4886590	CTSH	ENSG00000103811
+Post bronchodilator FEV1/FVC ratio	+1	rs11072805	CTSH	ENSG00000103811
+Post bronchodilator FEV1/FVC ratio	+1	rs7177699	CTSH	ENSG00000103811
+Post bronchodilator FEV1/FVC ratio	+1	rs4886591	CTSH	ENSG00000103811
+Post bronchodilator FEV1/FVC ratio	+1	rs112321636	CTSH	ENSG00000103811
+Post bronchodilator FEV1/FVC ratio	+1	rs11639372	CTSH	ENSG00000103811
+Post bronchodilator FEV1/FVC ratio	+1	rs10163145	CTSH	ENSG00000103811
+Post bronchodilator FEV1/FVC ratio	+1	rs11072806	CTSH	ENSG00000103811
+Post bronchodilator FEV1/FVC ratio	+1	rs35474770	CTSH	ENSG00000103811
+Post bronchodilator FEV1/FVC ratio	+1	rs12913260	CTSH	ENSG00000103811
+Post bronchodilator FEV1/FVC ratio	+1	rs12050525	CTSH	ENSG00000103811
+Post bronchodilator FEV1/FVC ratio	+1	rs28610385	CTSH	ENSG00000103811
+Post bronchodilator FEV1/FVC ratio	+1	rs1825087	CTSH	ENSG00000103811
+Post bronchodilator FEV1/FVC ratio	+1	rs2004038	CTSH	ENSG00000103811
+Post bronchodilator FEV1/FVC ratio	+1	rs12907764	CTSH	ENSG00000103811
+Post bronchodilator FEV1/FVC ratio	+1	rs3825807	CTSH	ENSG00000103811
+Post bronchodilator FEV1/FVC ratio	+1	rs12899147	CTSH	ENSG00000103811
+Post bronchodilator FEV1/FVC ratio	+1	rs922692	CTSH	ENSG00000103811
+Post bronchodilator FEV1/FVC ratio	+1	rs36061084	CTSH	ENSG00000103811
+Post bronchodilator FEV1/FVC ratio	+1	rs12901913	CTSH	ENSG00000103811
+Post bronchodilator FEV1/FVC ratio	+1	rs11072803	CTSH	ENSG00000103811
+Post bronchodilator FEV1/FVC ratio	+1	rs400942	LILRB2	ENSG00000131042
+Post bronchodilator FEV1/FVC ratio	+1	rs451000	LILRB2	ENSG00000131042
+Post bronchodilator FEV1/FVC ratio	+1	rs450937	LILRB2	ENSG00000131042
+Post bronchodilator FEV1/FVC ratio	+1	rs443874	LILRB2	ENSG00000131042
+Post bronchodilator FEV1/FVC ratio	+1	rs1699346	PPARG	ENSG00000132170
+Post bronchodilator FEV1/FVC ratio	+1	rs1619599	PPARG	ENSG00000132170
+Post bronchodilator FEV1/FVC ratio	+1	rs17483721	NCOR1	ENSG00000141027
+Post bronchodilator FEV1/FVC ratio	+1	rs17483686	NCOR1	ENSG00000141027
+Post bronchodilator FEV1	+1	rs2656065	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs28395178	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs2009746	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs12101809	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs7359276	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs2568488	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs2036533	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs12910984	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs951266	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs2568497	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs1964678	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs7170068	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs12593950	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs8040868	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs576982	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs2938670	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs12441426	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs7164594	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs2089162	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs2915695	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs569207	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs28437878	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs667282	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs140330585	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs12901913	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs938682	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs35212593	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs11634351	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs8042849	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs1711731	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs1700006	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs17486195	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs4461039	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs11072790	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs57064725	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs12904234	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs12441354	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs28480606	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs72738786	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs4243084	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs3813570	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs4887069	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs17487223	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs2036534	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs2568493	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs4886579	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs3825845	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs72740964	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs35031105	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs8042238	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs8039449	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs11633958	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs12438181	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs34138960	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs2656070	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs12592111	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs931794	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs1051730	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs7169584	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs12899135	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs684513	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs11072766	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs16969968	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs2568499	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs2456020	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs7181245	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs2568490	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs113352275	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs2869566	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs2036529	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs4362358	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs10851907	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs55958997	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs17483686	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs3743078	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs56219465	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs6495309	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs28534575	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs55853698	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs503464	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs55781567	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs4886587	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs518425	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs58365910	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs72738704	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs1504549	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs28669908	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs2656073	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs17483929	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs10851906	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs12439240	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs12914385	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs34664138	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs7173514	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs35583595	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs2656071	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs7177514	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs12441088	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs72738718	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs7181486	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs4887087	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs4887086	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs2656074	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs4886580	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs72740955	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs7172118	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs11858836	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs7163730	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs17483721	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs2568494	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs2869548	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs28498264	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs74925218	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs637137	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs72738736	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs4886586	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs2958719	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs55983731	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs8034191	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs1504550	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs4299116	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs9788682	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs7174190	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs8043227	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs2656069	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs12594711	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs11639372	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs59133824	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs1062980	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs16969894	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs7174348	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs4887077	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs12916801	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs7180002	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs4887059	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs34684276	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs2656072	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs11637630	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs4887057	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs9920506	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs8031948	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs72743158	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs13329271	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs2036527	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs17484524	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs61204066	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs8192482	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs4887067	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs59683676	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs1996371	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs17483548	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs8042260	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs11072785	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs6495308	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs4887072	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs905739	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs28511883	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs17405217	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs12593229	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs12910627	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs1317286	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs55676755	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs664172	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs11638372	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs11629637	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs1394371	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs2938671	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs12910910	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs12903295	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs4887053	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs10519203	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs12438659	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs17486278	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs2869045	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs56117933	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs17484235	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs2938674	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs9788721	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs1021071	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs924840	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs7181447	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs2656056	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs72743199	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs2656052	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs28602670	PSMA4	ENSG00000041357
+Post bronchodilator FEV1	+1	rs4886590	CTSH	ENSG00000103811
+Post bronchodilator FEV1	+1	rs7177699	CTSH	ENSG00000103811
+Post bronchodilator FEV1	+1	rs112321636	CTSH	ENSG00000103811
+Post bronchodilator FEV1	+1	rs11639372	CTSH	ENSG00000103811
+Post bronchodilator FEV1	+1	rs35474770	CTSH	ENSG00000103811
+Post bronchodilator FEV1	+1	rs12913260	CTSH	ENSG00000103811
+Post bronchodilator FEV1	+1	rs12050525	CTSH	ENSG00000103811
+Post bronchodilator FEV1	+1	rs2004038	CTSH	ENSG00000103811
+Post bronchodilator FEV1	+1	rs3825807	CTSH	ENSG00000103811
+Post bronchodilator FEV1	+1	rs922692	CTSH	ENSG00000103811
+Post bronchodilator FEV1	+1	rs36061084	CTSH	ENSG00000103811
+Post bronchodilator FEV1	+1	rs12901913	CTSH	ENSG00000103811
+Post bronchodilator FEV1	+1	rs17483721	NCOR1	ENSG00000141027
+Post bronchodilator FEV1	+1	rs17483686	NCOR1	ENSG00000141027
+Post bronchodilator FEV1	+1	rs12959333	INO80C	ENSG00000153391
+Post bronchodilator FEV1	+1	rs12928939	AP1G1	ENSG00000166747
+Post bronchodilator FEV1	+1	rs56117011	PLEC	ENSG00000178209
+Post bronchodilator FEV1	+1	rs3923388	PLEC	ENSG00000178209
+Post bronchodilator FEV1	+1	rs7155	PLEC	ENSG00000178209
+Post bronchodilator FEV1	+1	rs11786903	PLEC	ENSG00000178209
+Post bronchodilator FEV1	+1	rs6984820	PLEC	ENSG00000178209
+Post bronchodilator FEV1	+1	rs4077669	PLEC	ENSG00000178209
+Post bronchodilator FEV1	+1	rs6990361	PLEC	ENSG00000178209
+Post bronchodilator FEV1	+1	rs35916068	PLEC	ENSG00000178209
+Post bronchodilator FEV1	+1	rs56077246	PLEC	ENSG00000178209
+Post bronchodilator FEV1	+1	rs7461753	PLEC	ENSG00000178209
+Post bronchodilator FEV1	+1	rs11778026	PLEC	ENSG00000178209
+Post bronchodilator FEV1	+1	rs7016416	PLEC	ENSG00000178209
+Post bronchodilator FEV1	+1	rs7002002	PLEC	ENSG00000178209
+Post bronchodilator FEV1	+1	rs6558407	PLEC	ENSG00000178209
+Post bronchodilator FEV1	+1	rs11777402	PLEC	ENSG00000178209
+Post bronchodilator FEV1	+1	rs7010805	PLEC	ENSG00000178209
+Post bronchodilator FEV1	+1	rs3923387	PLEC	ENSG00000178209
+Post bronchodilator FEV1	+1	rs55646585	PLEC	ENSG00000178209
+Post bronchodilator FEV1	+1	rs7015048	PLEC	ENSG00000178209
+Post bronchodilator FEV1	+1	rs1065837	PLEC	ENSG00000178209
+Post bronchodilator FEV1	+1	rs1140522	PLEC	ENSG00000178209
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs2656065	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs2009746	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs951266	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs8040868	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs2938670	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs2089162	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs140330585	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs8042849	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs17486195	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs72738786	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs4243084	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs17487223	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs72740964	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs8039449	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs11633958	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs931794	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs1051730	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs16969968	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs10851907	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs55958997	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs17483686	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs56219465	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs55853698	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs55781567	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs58365910	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs72738704	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs17483929	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs12914385	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs72738718	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs7181486	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs72740955	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs7172118	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs11858836	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs17483721	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs2568494	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs2869548	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs72738736	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs55983731	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs8034191	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs1504550	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs7180002	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs34684276	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs8031948	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs72743158	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs2036527	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs17484524	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs8192482	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs4887067	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs17483548	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs17405217	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs1317286	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs55676755	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs10519203	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs17486278	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs56117933	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs17484235	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs9788721	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs2656052	PSMA4	ENSG00000041357
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs4460649	PLA2G4A	ENSG00000116711
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs7534469	PLA2G4A	ENSG00000116711
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs2378492	PLA2G4A	ENSG00000116711
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs2378491	PLA2G4A	ENSG00000116711
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs17483721	NCOR1	ENSG00000141027
+Post bronchodilator FEV1/FVC ratio in COPD	+1	rs17483686	NCOR1	ENSG00000141027
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs55923289	ERCC1	ENSG00000012061
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs3740688	NUP160	ENSG00000030066
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs4147929	CNN2	ENSG00000064666
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs3795065	CNN2	ENSG00000064666
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs3752231	CNN2	ENSG00000064666
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs111278892	CNN2	ENSG00000064666
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs3752241	CNN2	ENSG00000064666
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs3752241	POLR2E	ENSG00000099817
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs6014724	CSTF1	ENSG00000101138
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs6069736	CSTF1	ENSG00000101138
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs889555	KAT8	ENSG00000103510
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs59735493	KAT8	ENSG00000103510
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs889555	RNF40	ENSG00000103549
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs59735493	RNF40	ENSG00000103549
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs123187	KLC3	ENSG00000104892
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs3865444	CD33	ENSG00000105383
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs2081545	MS4A6A	ENSG00000110077
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs11605427	MS4A6A	ENSG00000110077
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs1786140	MS4A6A	ENSG00000110077
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs983392	MS4A6A	ENSG00000110077
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs2741342	PTK2B	ENSG00000120899
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs28834970	PTK2B	ENSG00000120899
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs9331908	EPHX2	ENSG00000120915
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs73050293	NECTIN2	ENSG00000130202
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs12978931	NECTIN2	ENSG00000130202
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs405697	NECTIN2	ENSG00000130202
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs4803764	NECTIN2	ENSG00000130202
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs2927468	NECTIN2	ENSG00000130202
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs419010	NECTIN2	ENSG00000130202
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs2927437	NECTIN2	ENSG00000130202
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs76692773	NECTIN2	ENSG00000130202
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs412776	NECTIN2	ENSG00000130202
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs4803760	NECTIN2	ENSG00000130202
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs11669338	NECTIN2	ENSG00000130202
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs393584	NECTIN2	ENSG00000130202
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs10407439	NECTIN2	ENSG00000130202
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs365653	NECTIN2	ENSG00000130202
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs1081106	NECTIN2	ENSG00000130202
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs11666329	NECTIN2	ENSG00000130202
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs10412413	NECTIN2	ENSG00000130202
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs6859	NECTIN2	ENSG00000130202
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs11668327	NECTIN2	ENSG00000130202
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs56394238	NECTIN2	ENSG00000130202
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs111371860	NECTIN2	ENSG00000130202
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs2972558	NECTIN2	ENSG00000130202
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs449647	NECTIN2	ENSG00000130202
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs28399637	NECTIN2	ENSG00000130202
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs406456	NECTIN2	ENSG00000130202
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs3740688	MYBPC3	ENSG00000134571
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs12292911	MYBPC3	ENSG00000134571
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs10838725	MYBPC3	ENSG00000134571
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs72838215	WDR33	ENSG00000136709
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs1060743	WDR33	ENSG00000136709
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs117618017	APH1B	ENSG00000138613
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs10838725	PTPRJ	ENSG00000149177
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs12292911	PTPRJ	ENSG00000149177
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs10933431	INPP5D	ENSG00000168918
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs35349669	INPP5D	ENSG00000168918
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs3935067	TAS2R60	ENSG00000185899
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs11771145	TAS2R60	ENSG00000185899
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs7805776	TAS2R60	ENSG00000185899
+Alzheimer's disease or family history of Alzheimer's disease	+1	rs62472729	TAS2R60	ENSG00000185899
+Post bronchodilator FEV1 in COPD	+1	rs2656065	PSMA4	ENSG00000041357
+Post bronchodilator FEV1 in COPD	+1	rs2009746	PSMA4	ENSG00000041357
+Post bronchodilator FEV1 in COPD	+1	rs2938670	PSMA4	ENSG00000041357
+Post bronchodilator FEV1 in COPD	+1	rs4243084	PSMA4	ENSG00000041357
+Post bronchodilator FEV1 in COPD	+1	rs56219465	PSMA4	ENSG00000041357
+Post bronchodilator FEV1 in COPD	+1	rs55781567	PSMA4	ENSG00000041357
+Post bronchodilator FEV1 in COPD	+1	rs17483929	PSMA4	ENSG00000041357
+Post bronchodilator FEV1 in COPD	+1	rs72738718	PSMA4	ENSG00000041357
+Post bronchodilator FEV1 in COPD	+1	rs7181486	PSMA4	ENSG00000041357
+Post bronchodilator FEV1 in COPD	+1	rs2568494	PSMA4	ENSG00000041357
+Post bronchodilator FEV1 in COPD	+1	rs8031948	PSMA4	ENSG00000041357
+Post bronchodilator FEV1 in COPD	+1	rs55676755	PSMA4	ENSG00000041357
+Post bronchodilator FEV1 in COPD	+1	rs17486278	PSMA4	ENSG00000041357
+Post bronchodilator FEV1 in COPD	+1	rs2656052	PSMA4	ENSG00000041357
+Pre bronchodilator FEV1	+1	rs2656065	PSMA4	ENSG00000041357
+Pre bronchodilator FEV1	+1	rs951266	PSMA4	ENSG00000041357
+Pre bronchodilator FEV1	+1	rs8040868	PSMA4	ENSG00000041357
+Pre bronchodilator FEV1	+1	rs931794	PSMA4	ENSG00000041357
+Pre bronchodilator FEV1	+1	rs1051730	PSMA4	ENSG00000041357
+Pre bronchodilator FEV1	+1	rs16969968	PSMA4	ENSG00000041357
+Pre bronchodilator FEV1	+1	rs17483929	PSMA4	ENSG00000041357
+Pre bronchodilator FEV1	+1	rs12914385	PSMA4	ENSG00000041357
+Pre bronchodilator FEV1	+1	rs17483721	PSMA4	ENSG00000041357
+Pre bronchodilator FEV1	+1	rs2568494	PSMA4	ENSG00000041357
+Pre bronchodilator FEV1	+1	rs8034191	PSMA4	ENSG00000041357
+Pre bronchodilator FEV1	+1	rs2036527	PSMA4	ENSG00000041357
+Pre bronchodilator FEV1	+1	rs17483721	NCOR1	ENSG00000141027
+Blood protein levels	+1	rs12301299	RAD52	ENSG00000002016
+Blood protein levels	+1	rs12980641	PGLYRP1	ENSG00000008438
+Blood protein levels	+1	rs10895987	CAPN1	ENSG00000014216
+Blood protein levels	+1	rs7184253	EDC4	ENSG00000038358
+Blood protein levels	+1	rs139855605	H6PD	ENSG00000049239
+Blood protein levels	+1	rs2303009	MAPK9	ENSG00000050748
+Blood protein levels	+1	rs144376466	MRTO4	ENSG00000053372
+Blood protein levels	+1	rs76957023	CNN2	ENSG00000064666
+Blood protein levels	+1	rs11708955	IP6K2	ENSG00000068745
+Blood protein levels	+1	rs72633697	FCGR2B	ENSG00000072694
+Blood protein levels	+1	rs17413015	FCGR2B	ENSG00000072694
+Blood protein levels	+1	rs1256288	FCGR2B	ENSG00000072694
+Blood protein levels	+1	rs6665610	FCGR2B	ENSG00000072694
+Blood protein levels	+1	rs62113716	XRCC1	ENSG00000073050
+Blood protein levels	+1	rs2607426	SNRPA	ENSG00000077312
+Blood protein levels	+1	rs2604877	SNRPA	ENSG00000077312
+Blood protein levels	+1	rs2230694	SNRPA	ENSG00000077312
+Blood protein levels	+1	rs2233154	SNRPA	ENSG00000077312
+Blood protein levels	+1	rs2233159	SNRPA	ENSG00000077312
+Blood protein levels	+1	rs1455434	SNRPA	ENSG00000077312
+Blood protein levels	+1	rs289828	RIF1	ENSG00000080345
+Blood protein levels	+1	rs1046988	PPIE	ENSG00000084072
+Blood protein levels	+1	rs9787249	PPIE	ENSG00000084072
+Blood protein levels	+1	rs12086750	PPIE	ENSG00000084072
+Blood protein levels	+1	rs2273121	CD59	ENSG00000085063
+Blood protein levels	+1	rs2989736	FCN1	ENSG00000085265
+Blood protein levels	+1	rs11103602	FCN1	ENSG00000085265
+Blood protein levels	+1	rs10858300	FCN1	ENSG00000085265
+Blood protein levels	+1	rs10117466	FCN1	ENSG00000085265
+Blood protein levels	+1	rs2631738	ACOX3	ENSG00000087008
+Blood protein levels	+1	rs11605328	SF3B2	ENSG00000087365
+Blood protein levels	+1	rs281439	ICAM1	ENSG00000090339
+Blood protein levels	+1	rs4761234	LYZ	ENSG00000090382
+Blood protein levels	+1	rs7959452	LYZ	ENSG00000090382
+Blood protein levels	+1	rs1800973	LYZ	ENSG00000090382
+Blood protein levels	+1	rs12589690	PSMC6	ENSG00000100519
+Blood protein levels	+1	rs941923	YY1	ENSG00000100811
+Blood protein levels	+1	rs11086556	BPI	ENSG00000101425
+Blood protein levels	+1	rs71334202	CST3	ENSG00000101439
+Blood protein levels	+1	rs12710327	CST3	ENSG00000101439
+Blood protein levels	+1	rs6036478	CST3	ENSG00000101439
+Blood protein levels	+1	rs2424590	CST3	ENSG00000101439
+Blood protein levels	+1	rs8102	POLR2C	ENSG00000102978
+Blood protein levels	+1	rs12592898	CTSH	ENSG00000103811
+Blood protein levels	+1	rs8109873	LILRB1	ENSG00000104972
+Blood protein levels	+1	rs8109267	LILRB1	ENSG00000104972
+Blood protein levels	+1	rs74345525	LILRB1	ENSG00000104972
+Blood protein levels	+1	rs1645784	LILRB1	ENSG00000104972
+Blood protein levels	+1	rs103294	LILRB1	ENSG00000104972
+Blood protein levels	+1	rs2004318	LILRB1	ENSG00000104972
+Blood protein levels	+1	rs74345525	LILRA1	ENSG00000104974
+Blood protein levels	+1	rs2004318	LILRA1	ENSG00000104974
+Blood protein levels	+1	rs1354106	CD33	ENSG00000105383
+Blood protein levels	+1	rs1710354	CD33	ENSG00000105383
+Blood protein levels	+1	rs12985029	CD33	ENSG00000105383
+Blood protein levels	+1	rs12459419	CD33	ENSG00000105383
+Blood protein levels	+1	rs1051738	TYK2	ENSG00000105397
+Blood protein levels	+1	rs2238647	ELL	ENSG00000105656
+Blood protein levels	+1	rs12973760	ETHE1	ENSG00000105755
+Blood protein levels	+1	rs10738948	RGP1	ENSG00000107185
+Blood protein levels	+1	rs2236293	RGP1	ENSG00000107185
+Blood protein levels	+1	rs35791293	RPL28	ENSG00000108107
+Blood protein levels	+1	rs10887868	TSPAN14	ENSG00000108219
+Blood protein levels	+1	rs7907770	TSPAN14	ENSG00000108219
+Blood protein levels	+1	rs55897509	CTSC	ENSG00000109861
+Blood protein levels	+1	rs4938330	CBL	ENSG00000110395
+Blood protein levels	+1	rs1993373	GTF2H1	ENSG00000110768
+Blood protein levels	+1	rs11024616	GTF2H1	ENSG00000110768
+Blood protein levels	+1	rs4150579	GTF2H1	ENSG00000110768
+Blood protein levels	+1	rs10690148	GTF2H1	ENSG00000110768
+Blood protein levels	+1	rs35555795	TRIM38	ENSG00000112343
+Blood protein levels	+1	rs2523987	TRIM38	ENSG00000112343
+Blood protein levels	+1	rs27303	LNPEP	ENSG00000113441
+Blood protein levels	+1	rs38033	LNPEP	ENSG00000113441
+Blood protein levels	+1	rs3767199	QSOX1	ENSG00000116260
+Blood protein levels	+1	rs6662572	PRDX1	ENSG00000117450
+Blood protein levels	+1	rs9371533	NUP43	ENSG00000120253
+Blood protein levels	+1	rs2284367	CAT	ENSG00000121691
+Blood protein levels	+1	rs7439493	PLA2G12A	ENSG00000123739
+Blood protein levels	+1	rs11120218	C4BPA	ENSG00000123838
+Blood protein levels	+1	rs6032067	SLPI	ENSG00000124107
+Blood protein levels	+1	rs6714900	NAGK	ENSG00000124357
+Blood protein levels	+1	rs11680831	NAGK	ENSG00000124357
+Blood protein levels	+1	rs9462846	PEX6	ENSG00000124587
+Blood protein levels	+1	rs676443	KIR2DL1	ENSG00000125498
+Blood protein levels	+1	rs618835	KIR2DL1	ENSG00000125498
+Blood protein levels	+1	rs640396	KIR2DL1	ENSG00000125498
+Blood protein levels	+1	rs660773	KIR2DL1	ENSG00000125498
+Blood protein levels	+1	rs4761234	YEATS4	ENSG00000127337
+Blood protein levels	+1	rs7959452	YEATS4	ENSG00000127337
+Blood protein levels	+1	rs727428	FXR2	ENSG00000129245
+Blood protein levels	+1	rs858519	FXR2	ENSG00000129245
+Blood protein levels	+1	rs1642762	FXR2	ENSG00000129245
+Blood protein levels	+1	rs440277	NECTIN2	ENSG00000130202
+Blood protein levels	+1	rs1227734	PGPEP1	ENSG00000130517
+Blood protein levels	+1	rs398217	LILRB2	ENSG00000131042
+Blood protein levels	+1	rs10405357	LILRB2	ENSG00000131042
+Blood protein levels	+1	rs12975366	LILRB2	ENSG00000131042
+Blood protein levels	+1	rs903357	CHI3L1	ENSG00000133048
+Blood protein levels	+1	rs10920578	CHI3L1	ENSG00000133048
+Blood protein levels	+1	rs7149221	NUMB	ENSG00000133961
+Blood protein levels	+1	rs2727013	ELP3	ENSG00000134014
+Blood protein levels	+1	rs4704846	HAVCR2	ENSG00000135077
+Blood protein levels	+1	rs6874178	HAVCR2	ENSG00000135077
+Blood protein levels	+1	rs4704737	HAVCR2	ENSG00000135077
+Blood protein levels	+1	rs858240	NUPL2	ENSG00000136243
+Blood protein levels	+1	rs28458177	NUPL2	ENSG00000136243
+Blood protein levels	+1	rs5850	NUPL2	ENSG00000136243
+Blood protein levels	+1	rs1159787	TLR4	ENSG00000136869
+Blood protein levels	+1	rs28367631	TCF19	ENSG00000137310
+Blood protein levels	+1	rs2853928	TCF19	ENSG00000137310
+Blood protein levels	+1	rs9263871	TCF19	ENSG00000137310
+Blood protein levels	+1	rs2524139	TCF19	ENSG00000137310
+Blood protein levels	+1	rs10957266	GGH	ENSG00000137563
+Blood protein levels	+1	rs116323041	GGH	ENSG00000137563
+Blood protein levels	+1	rs2532497	TAPBPL	ENSG00000139192
+Blood protein levels	+1	rs10849478	TAPBPL	ENSG00000139192
+Blood protein levels	+1	rs12964	TAPBPL	ENSG00000139192
+Blood protein levels	+1	rs144830084	ARRB2	ENSG00000141480
+Blood protein levels	+1	rs267738	CTSK	ENSG00000143387
+Blood protein levels	+1	rs1336900	CTSK	ENSG00000143387
+Blood protein levels	+1	rs9462846	RPL7L1	ENSG00000146223
+Blood protein levels	+1	rs7212510	ZCCHC7	ENSG00000147905
+Blood protein levels	+1	rs8176749	MED22	ENSG00000148297
+Blood protein levels	+1	rs3118663	MED22	ENSG00000148297
+Blood protein levels	+1	rs115478735	MED22	ENSG00000148297
+Blood protein levels	+1	rs635634	MED22	ENSG00000148297
+Blood protein levels	+1	rs10793962	MED22	ENSG00000148297
+Blood protein levels	+1	rs4962153	MED22	ENSG00000148297
+Blood protein levels	+1	rs9813363	RAB6B	ENSG00000154917
+Blood protein levels	+1	rs17617994	TDRD9	ENSG00000156414
+Blood protein levels	+1	rs1041456	CSTB	ENSG00000160213
+Blood protein levels	+1	rs10796927	ADAR	ENSG00000160710
+Blood protein levels	+1	rs9427116	ADAR	ENSG00000160710
+Blood protein levels	+1	rs12459634	U2AF1L4	ENSG00000161265
+Blood protein levels	+1	rs267738	CTSS	ENSG00000163131
+Blood protein levels	+1	rs1336900	CTSS	ENSG00000163131
+Blood protein levels	+1	rs41271951	CTSS	ENSG00000163131
+Blood protein levels	+1	rs2916193	S100A12	ENSG00000163221
+Blood protein levels	+1	rs2472649	CXCL5	ENSG00000163735
+Blood protein levels	+1	rs450373	CXCL5	ENSG00000163735
+Blood protein levels	+1	rs425535	CXCL5	ENSG00000163735
+Blood protein levels	+1	rs6808835	CCR1	ENSG00000163823
+Blood protein levels	+1	rs1126477	CCR1	ENSG00000163823
+Blood protein levels	+1	rs113341849	CCR1	ENSG00000163823
+Blood protein levels	+1	rs2712417	RPN1	ENSG00000163902
+Blood protein levels	+1	rs7650934	RPN1	ENSG00000163902
+Blood protein levels	+1	rs2017858	ATRIP	ENSG00000164053
+Blood protein levels	+1	rs870825	CASP3	ENSG00000164305
+Blood protein levels	+1	rs3947	CTSB	ENSG00000164733
+Blood protein levels	+1	rs676443	KIR3DL1	ENSG00000167633
+Blood protein levels	+1	rs62087214	CD300A	ENSG00000167851
+Blood protein levels	+1	rs112312277	RPS9	ENSG00000170889
+Blood protein levels	+1	rs12986064	RPS9	ENSG00000170889
+Blood protein levels	+1	rs8396	ETFDH	ENSG00000171503
+Blood protein levels	+1	rs7970682	CLEC12A	ENSG00000172322
+Blood protein levels	+1	rs12073436	C1QA	ENSG00000173372
+Blood protein levels	+1	rs35365539	GMPPB	ENSG00000173540
+Blood protein levels	+1	rs10747049	DPP7	ENSG00000176978
+Blood protein levels	+1	rs4880207	DPP7	ENSG00000176978
+Blood protein levels	+1	rs13962	FCER1A	ENSG00000179639
+Blood protein levels	+1	rs13085791	UBA7	ENSG00000182179
+Blood protein levels	+1	rs35365539	UBA7	ENSG00000182179
+Blood protein levels	+1	rs6770670	UBA7	ENSG00000182179
+Blood protein levels	+1	rs4688759	UBA7	ENSG00000182179
+Blood protein levels	+1	rs139643250	RUVBL2	ENSG00000183207
+Blood protein levels	+1	rs79502742	RUVBL2	ENSG00000183207
+Blood protein levels	+1	rs939421	CCR3	ENSG00000183625
+Blood protein levels	+1	rs113341849	CCR3	ENSG00000183625
+Blood protein levels	+1	rs9838450	CCR3	ENSG00000183625
+Blood protein levels	+1	rs6808835	CCR3	ENSG00000183625
+Blood protein levels	+1	rs1639429	FCAR	ENSG00000186431
+Blood protein levels	+1	rs660773	FCAR	ENSG00000186431
+Blood protein levels	+1	rs8109267	LILRA5	ENSG00000187116
+Blood protein levels	+1	rs398217	LILRA5	ENSG00000187116
+Blood protein levels	+1	rs8109873	LILRA5	ENSG00000187116
+Blood protein levels	+1	rs103294	LILRA5	ENSG00000187116
+Blood protein levels	+1	rs1645784	LILRA5	ENSG00000187116
+Blood protein levels	+1	rs45464494	SECISBP2	ENSG00000187742
+Blood protein levels	+1	rs140647145	SECISBP2	ENSG00000187742
+Blood protein levels	+1	rs640396	KIR2DL4	ENSG00000189013
+Blood protein levels	+1	rs12134133	CD55	ENSG00000196352
+Blood protein levels	+1	rs11580387	CD55	ENSG00000196352
+Blood protein levels	+1	rs16923189	PDCD1LG2	ENSG00000197646
+Blood protein levels	+1	rs11592462	PSAP	ENSG00000197746
+Blood protein levels	+1	rs10762481	PSAP	ENSG00000197746
+Blood protein levels	+1	rs1065666	EME2	ENSG00000197774
+Blood protein levels	+1	rs11055602	CLEC4C	ENSG00000198178
+Blood protein levels	+1	rs387608	NELFE	ENSG00000204356
+Blood protein levels	+1	rs550513	NELFE	ENSG00000204356
+Blood protein levels	+1	rs9283893	LSM2	ENSG00000204392
+Blood protein levels	+1	rs2239705	NCR3	ENSG00000204475
+Blood protein levels	+1	rs143439747	NCR3	ENSG00000204475
+Blood protein levels	+1	rs769178	NCR3	ENSG00000204475
+Blood protein levels	+1	rs9266629	NCR3	ENSG00000204475
+Blood protein levels	+1	rs2284178	HLA-C	ENSG00000204525
+Blood protein levels	+1	rs2524139	HLA-C	ENSG00000204525
+Blood protein levels	+1	rs2524143	HLA-C	ENSG00000204525
+Blood protein levels	+1	rs2524142	HLA-C	ENSG00000204525
+Blood protein levels	+1	rs9263871	HLA-C	ENSG00000204525
+Blood protein levels	+1	rs6457374	HLA-C	ENSG00000204525
+Blood protein levels	+1	rs2524280	HLA-C	ENSG00000204525
+Blood protein levels	+1	rs1265096	HLA-C	ENSG00000204525
+Blood protein levels	+1	rs6509089	CD177	ENSG00000204936
+Blood protein levels	+1	rs62113716	CD177	ENSG00000204936
+Blood protein levels	+1	rs2255336	KLRC2	ENSG00000205809
+Blood protein levels	+1	rs2255336	KLRK1	ENSG00000213809
+Blood protein levels	+1	rs35119871	TNFSF12	ENSG00000239697
+Blood protein levels	+1	rs1642762	TNFSF12	ENSG00000239697
+Blood protein levels	+1	rs80067372	TNFSF12	ENSG00000239697
+Blood protein levels	+1	rs12941509	TNFSF12	ENSG00000239697
+Blood protein levels	+1	rs727428	TNFSF12	ENSG00000239697
+Blood protein levels	+1	rs8109873	LILRA4	ENSG00000239961
+Blood protein levels	+1	rs8109267	LILRA4	ENSG00000239961
+Blood protein levels	+1	rs103294	LILRA4	ENSG00000239961
+Blood protein levels	+1	rs74345525	LILRA2	ENSG00000239998
+Blood protein levels	+1	rs2004318	LILRA2	ENSG00000239998
+Blood protein levels	+1	rs2239805	PSMB9	ENSG00000240065
+Blood protein levels	+1	rs11666065	KIR3DL2	ENSG00000240403
+Blood protein levels	+1	rs618835	KIR3DL2	ENSG00000240403
+Blood protein levels	+1	rs1639429	KIR2DL3	ENSG00000243772
+Blood protein levels	+1	rs7250849	SIGLEC14	ENSG00000254415
+Blood protein levels	+1	rs16982907	SIGLEC14	ENSG00000254415
+Blood protein levels	+1	rs6509558	SIGLEC14	ENSG00000254415
+Blood protein levels	+1	rs2000999	HP	ENSG00000257017
+Blood protein levels	+1	rs1424241	HP	ENSG00000257017
+Blood protein levels	+1	rs4239252	CCL5	ENSG00000271503
+Blood protein levels	+1	rs2687507	CCL4	ENSG00000275302
+Pre bronchodilator FEV1/FVC ratio	+1	rs951266	PSMA4	ENSG00000041357
+Pre bronchodilator FEV1/FVC ratio	+1	rs8040868	PSMA4	ENSG00000041357
+Pre bronchodilator FEV1/FVC ratio	+1	rs931794	PSMA4	ENSG00000041357
+Pre bronchodilator FEV1/FVC ratio	+1	rs1051730	PSMA4	ENSG00000041357
+Pre bronchodilator FEV1/FVC ratio	+1	rs16969968	PSMA4	ENSG00000041357
+Pre bronchodilator FEV1/FVC ratio	+1	rs12914385	PSMA4	ENSG00000041357
+Pre bronchodilator FEV1/FVC ratio	+1	rs8034191	PSMA4	ENSG00000041357
+Pre bronchodilator FEV1/FVC ratio	+1	rs2036527	PSMA4	ENSG00000041357
+Family history of Alzheimer's disease	+1	rs3752241	CNN2	ENSG00000064666
+Family history of Alzheimer's disease	+1	rs3752241	POLR2E	ENSG00000099817
+Family history of Alzheimer's disease	+1	rs6014724	CSTF1	ENSG00000101138
+Family history of Alzheimer's disease	+1	rs59735493	KAT8	ENSG00000103510
+Family history of Alzheimer's disease	+1	rs59735493	RNF40	ENSG00000103549
+Family history of Alzheimer's disease	+1	rs11605427	MS4A6A	ENSG00000110077
+Family history of Alzheimer's disease	+1	rs1582763	MS4A6A	ENSG00000110077
+Family history of Alzheimer's disease	+1	rs983392	MS4A6A	ENSG00000110077
+Family history of Alzheimer's disease	+1	rs28834970	PTK2B	ENSG00000120899
+Family history of Alzheimer's disease	+1	rs75627662	NECTIN2	ENSG00000130202
+Family history of Alzheimer's disease	+1	rs2927468	NECTIN2	ENSG00000130202
+Family history of Alzheimer's disease	+1	rs412776	NECTIN2	ENSG00000130202
+Family history of Alzheimer's disease	+1	rs6859	NECTIN2	ENSG00000130202
+Family history of Alzheimer's disease	+1	rs10119	NECTIN2	ENSG00000130202
+Family history of Alzheimer's disease	+1	rs111371860	NECTIN2	ENSG00000130202
+Family history of Alzheimer's disease	+1	rs449647	NECTIN2	ENSG00000130202
+Family history of Alzheimer's disease	+1	rs28399637	NECTIN2	ENSG00000130202
+Family history of Alzheimer's disease	+1	rs117618017	APH1B	ENSG00000138613
+Family history of Alzheimer's disease	+1	rs10933431	INPP5D	ENSG00000168918
+Family history of Alzheimer's disease	+1	rs35349669	INPP5D	ENSG00000168918
+Disc degeneration (lumbar)	+1	rs9469300	TAP1	ENSG00000168394
+Disc degeneration (lumbar)	+1	rs6457690	TAP1	ENSG00000168394
+Disc degeneration (lumbar)	+1	rs7744666	TAP1	ENSG00000168394
+Disc degeneration (lumbar)	+1	rs6936004	TAP1	ENSG00000168394
+Disc degeneration (lumbar)	+1	rs11969002	TAP1	ENSG00000168394
+Disc degeneration (lumbar)	+1	rs10214886	TAP1	ENSG00000168394
+Disc degeneration (lumbar)	+1	rs1029296	TAP1	ENSG00000168394
+Disc degeneration (lumbar)	+1	rs1029295	TAP1	ENSG00000168394
+Disc degeneration (lumbar)	+1	rs10046257	TAP1	ENSG00000168394
+Disc degeneration (lumbar)	+1	rs2187689	TAP1	ENSG00000168394
+Disc degeneration (lumbar)	+1	rs3749982	TAP1	ENSG00000168394
+Disc degeneration (lumbar)	+1	rs1029295	PSMB8	ENSG00000204264
+Disc degeneration (lumbar)	+1	rs1029296	PSMB8	ENSG00000204264
+Disc degeneration (lumbar)	+1	rs6936004	PSMB8	ENSG00000204264
+Disc degeneration (lumbar)	+1	rs2187689	PSMB9	ENSG00000240065
+Disc degeneration (lumbar)	+1	rs6936004	PSMB9	ENSG00000240065
+Disc degeneration (lumbar)	+1	rs6457690	PSMB9	ENSG00000240065
+Disc degeneration (lumbar)	+1	rs1029295	PSMB9	ENSG00000240065
+Disc degeneration (lumbar)	+1	rs1029296	PSMB9	ENSG00000240065
+Disc degeneration (lumbar)	+1	rs10046257	PSMB9	ENSG00000240065
+Disc degeneration (lumbar)	+1	rs10214886	HLA-DMB	ENSG00000242574
+Disc degeneration (lumbar)	+1	rs10046257	HLA-DMB	ENSG00000242574
+Disc degeneration (lumbar)	+1	rs6457690	HLA-DMB	ENSG00000242574
+Disc degeneration (lumbar)	+1	rs1029295	HLA-DMB	ENSG00000242574
+Disc degeneration (lumbar)	+1	rs6936004	HLA-DMB	ENSG00000242574
+Disc degeneration (lumbar)	+1	rs3749982	HLA-DMB	ENSG00000242574
+Disc degeneration (lumbar)	+1	rs1029296	HLA-DMB	ENSG00000242574
+Disc degeneration (lumbar)	+1	rs7744666	HLA-DMB	ENSG00000242574
+Disc degeneration (lumbar)	+1	rs11969002	HLA-DMB	ENSG00000242574
+Disc degeneration (lumbar)	+1	rs9469300	HLA-DMB	ENSG00000242574
+Sarcoidosis (Lofgren's syndrome vs non-Lofgren's syndrome)	+1	rs9257248	TRIM38	ENSG00000112343
+Sarcoidosis (Lofgren's syndrome vs non-Lofgren's syndrome)	+1	rs10484399	TRIM38	ENSG00000112343
+Sarcoidosis (Lofgren's syndrome vs non-Lofgren's syndrome)	+1	rs13197574	TRIM38	ENSG00000112343
+Sarcoidosis (Lofgren's syndrome vs non-Lofgren's syndrome)	+1	rs3135394	HLA-DMA	ENSG00000204257
+Sarcoidosis (Lofgren's syndrome vs non-Lofgren's syndrome)	+1	rs1480380	HLA-DMA	ENSG00000204257
+Sarcoidosis (Lofgren's syndrome vs non-Lofgren's syndrome)	+1	rs389884	NEU1	ENSG00000204386
+Sarcoidosis (Lofgren's syndrome vs non-Lofgren's syndrome)	+1	rs3117582	NEU1	ENSG00000204386
+Sarcoidosis (Lofgren's syndrome vs non-Lofgren's syndrome)	+1	rs915652	NEU1	ENSG00000204386
+Sarcoidosis (Lofgren's syndrome vs non-Lofgren's syndrome)	+1	rs3129788	HLA-G	ENSG00000204632
+Sarcoidosis (Lofgren's syndrome vs non-Lofgren's syndrome)	+1	rs1633005	HLA-F	ENSG00000204642
+Sarcoidosis (Lofgren's syndrome vs non-Lofgren's syndrome)	+1	rs1633005	GABBR1	ENSG00000204681
+Sarcoidosis (Lofgren's syndrome vs non-Lofgren's syndrome)	+1	rs1233491	GABBR1	ENSG00000204681
+Sarcoidosis (Lofgren's syndrome vs non-Lofgren's syndrome)	+1	rs3130895	GABBR1	ENSG00000204681
+Sarcoidosis (Lofgren's syndrome vs non-Lofgren's syndrome)	+1	rs389884	PSMB9	ENSG00000240065
+Sarcoidosis (Lofgren's syndrome vs non-Lofgren's syndrome)	+1	rs1480380	PSMB9	ENSG00000240065
+Sarcoidosis (Lofgren's syndrome vs non-Lofgren's syndrome)	+1	rs389884	C4A	ENSG00000244731
+Systemic lupus erythematosus	+1	rs1061502	DRD4	ENSG00000069696
+Systemic lupus erythematosus	+1	rs1801274	FCGR2B	ENSG00000072694
+Systemic lupus erythematosus	+1	rs2269368	RENBP	ENSG00000102032
+Systemic lupus erythematosus	+1	rs2303745	BABAM1	ENSG00000105393
+Systemic lupus erythematosus	+1	rs2304256	TYK2	ENSG00000105397
+Systemic lupus erythematosus	+1	rs11085727	TYK2	ENSG00000105397
+Systemic lupus erythematosus	+1	rs10911363	SMG7	ENSG00000116698
+Systemic lupus erythematosus	+1	rs959260	NUP85	ENSG00000125450
+Systemic lupus erythematosus	+1	rs10488631	IRF5	ENSG00000128604
+Systemic lupus erythematosus	+1	rs2070197	IRF5	ENSG00000128604
+Systemic lupus erythematosus	+1	rs729302	IRF5	ENSG00000128604
+Systemic lupus erythematosus	+1	rs35000415	IRF5	ENSG00000128604
+Systemic lupus erythematosus	+1	rs12539741	IRF5	ENSG00000128604
+Systemic lupus erythematosus	+1	rs4728142	IRF5	ENSG00000128604
+Systemic lupus erythematosus	+1	rs3757387	IRF5	ENSG00000128604
+Systemic lupus erythematosus	+1	rs12537284	IRF5	ENSG00000128604
+Systemic lupus erythematosus	+1	rs12531711	IRF5	ENSG00000128604
+Systemic lupus erythematosus	+1	rs113478424	IRF5	ENSG00000128604
+Systemic lupus erythematosus	+1	rs2304256	AP1M2	ENSG00000129354
+Systemic lupus erythematosus	+1	rs8105429	PGPEP1	ENSG00000130517
+Systemic lupus erythematosus	+1	rs11574637	ITGAX	ENSG00000140678
+Systemic lupus erythematosus	+1	rs9888739	ITGAX	ENSG00000140678
+Systemic lupus erythematosus	+1	rs9937837	ITGAX	ENSG00000140678
+Systemic lupus erythematosus	+1	rs11860650	ITGAX	ENSG00000140678
+Systemic lupus erythematosus	+1	rs11150610	ITGAX	ENSG00000140678
+Systemic lupus erythematosus	+1	rs34572943	ITGAX	ENSG00000140678
+Systemic lupus erythematosus	+1	rs11644034	IRF8	ENSG00000140968
+Systemic lupus erythematosus	+1	rs4917385	PDCD11	ENSG00000148843
+Systemic lupus erythematosus	+1	rs6804441	POGLUT1	ENSG00000163389
+Systemic lupus erythematosus	+1	rs9311676	RPP14	ENSG00000163684
+Systemic lupus erythematosus	+1	rs6445975	RPP14	ENSG00000163684
+Systemic lupus erythematosus	+1	rs7683537	CASP3	ENSG00000164305
+Systemic lupus erythematosus	+1	rs9398235	CDC40	ENSG00000168438
+Systemic lupus erythematosus	+1	rs12802200	HRAS	ENSG00000174775
+Systemic lupus erythematosus	+1	rs959260	GRB2	ENSG00000177885
+Systemic lupus erythematosus	+1	rs9398235	DDO	ENSG00000203797
+Systemic lupus erythematosus	+1	rs3129716	HLA-DMA	ENSG00000204257
+Systemic lupus erythematosus	+1	rs3135394	HLA-DMA	ENSG00000204257
+Systemic lupus erythematosus	+1	rs9267531	NEU1	ENSG00000204386
+Systemic lupus erythematosus	+1	rs558702	NEU1	ENSG00000204386
+Systemic lupus erythematosus	+1	rs3131379	NEU1	ENSG00000204386
+Systemic lupus erythematosus	+1	rs1150757	C4B	ENSG00000224389
+Systemic lupus erythematosus	+1	rs1270942	PSMB9	ENSG00000240065
+Systemic lupus erythematosus	+1	rs558702	C4A	ENSG00000244731
+Lung cancer	+1	rs7953330	RAD52	ENSG00000002016
+Lung cancer	+1	rs10849605	RAD52	ENSG00000002016
+Lung cancer	+1	rs8042849	PSMA4	ENSG00000041357
+Lung cancer	+1	rs1051730	PSMA4	ENSG00000041357
+Lung cancer	+1	rs55781567	PSMA4	ENSG00000041357
+Lung cancer	+1	rs8034191	PSMA4	ENSG00000041357
+Lung cancer	+1	rs11639372	PSMA4	ENSG00000041357
+Lung cancer	+1	rs4886591	CTSH	ENSG00000103811
+Lung cancer	+1	rs11639372	CTSH	ENSG00000103811
+Lung cancer	+1	rs28408315	CTSH	ENSG00000103811
+Lung cancer	+1	rs66500423	NUMBL	ENSG00000105245
+Lung cancer	+1	rs28412066	TRIM38	ENSG00000112343
+Lung cancer	+1	rs41266839	TRIM38	ENSG00000112343
+Lung cancer	+1	rs13199649	TRIM38	ENSG00000112343
+Lung cancer	+1	rs13191445	TRIM38	ENSG00000112343
+Lung cancer	+1	rs13201681	TRIM38	ENSG00000112343
+Lung cancer	+1	rs34244947	TRIM38	ENSG00000112343
+Lung cancer	+1	rs149866169	TRIM38	ENSG00000112343
+Lung cancer	+1	rs35768595	PRSS16	ENSG00000112812
+Lung cancer	+1	rs9322193	NUP43	ENSG00000120253
+Lung cancer	+1	rs10197940	TNFAIP6	ENSG00000123610
+Lung cancer	+1	rs9322193	PPIL4	ENSG00000131013
+Lung cancer	+1	rs79368540	DYNC2LI1	ENSG00000138036
+Lung cancer	+1	rs13191445	HIST1H2BD	ENSG00000158373
+Lung cancer	+1	rs3999544	HIST1H4H	ENSG00000158406
+Lung cancer	+1	rs3131378	NEU1	ENSG00000204386
+Lung cancer	+1	rs3117582	NEU1	ENSG00000204386
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs17483721	CLEC16A	ENSG00000038532
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs17483686	CLEC16A	ENSG00000038532
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs12829595	USP15	ENSG00000135655
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs1444250	USP15	ENSG00000135655
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs1009168	USP15	ENSG00000135655
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs1444249	USP15	ENSG00000135655
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs9668865	USP15	ENSG00000135655
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs12579846	USP15	ENSG00000135655
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs9668676	USP15	ENSG00000135655
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs35194524	USP15	ENSG00000135655
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs10877792	USP15	ENSG00000135655
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs11174325	USP15	ENSG00000135655
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs9706154	USP15	ENSG00000135655
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs11174324	USP15	ENSG00000135655
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs9668015	USP15	ENSG00000135655
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs1985875	USP15	ENSG00000135655
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs9738122	USP15	ENSG00000135655
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs9738294	USP15	ENSG00000135655
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs1975494	USP15	ENSG00000135655
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs9739546	USP15	ENSG00000135655
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs9739682	USP15	ENSG00000135655
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs2568494	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs17486195	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs72743158	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs8031948	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs17484524	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs17483721	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs2656065	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs72738732	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs72738736	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs2009746	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs17483686	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs72738718	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs2656052	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs951266	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs7180002	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs72740955	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs2089162	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs7181486	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs17405217	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs9788721	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs2938670	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs8192482	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs17484235	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs17487223	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs17483548	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs55781567	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs8042849	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs55983731	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs2869548	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs8034191	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs140330585	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs72738704	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs16969968	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs10519203	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs1051730	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs4243084	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs55853698	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs12914385	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs7172118	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs72738786	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs58365910	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs56390833	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs34684276	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs1504550	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs11858836	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs4887067	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs2036527	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs931794	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs56219465	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs11633958	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs17483929	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs10851907	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs8039449	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs1317286	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs72740964	IREB2	ENSG00000136381
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs7823498	NRG1	ENSG00000157168
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs4236709	NRG1	ENSG00000157168
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs7820838	NRG1	ENSG00000157168
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs2466104	NRG1	ENSG00000157168
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs8034191	CHRNA5	ENSG00000169684
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs55853698	CHRNA5	ENSG00000169684
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs72740955	CHRNA5	ENSG00000169684
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs8042849	CHRNA5	ENSG00000169684
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs9788721	CHRNA5	ENSG00000169684
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs72738786	CHRNA5	ENSG00000169684
+Post bronchodilator FEV1/FVC ratio in COPD	+2	rs34684276	CHRNA5	ENSG00000169684
+Glycated hemoglobin levels	+3	rs174577	MYRF	ENSG00000124920
+Glycated hemoglobin levels	+3	rs11964178	CD164	ENSG00000135535
+Glycated hemoglobin levels	+3	rs1046896	FN3KRP	ENSG00000141560
+Glycated hemoglobin levels	+3	rs1046875	FN3KRP	ENSG00000141560
+Glycated hemoglobin levels	+3	rs7072268	STOX1	ENSG00000165730
+Glycated hemoglobin levels	+3	rs1046896	FN3K	ENSG00000167363
+Glycated hemoglobin levels	+3	rs1046875	FN3K	ENSG00000167363
+Glycated hemoglobin levels	+3	rs9914988	PROCA1	ENSG00000167525
+Glycated hemoglobin levels	+3	rs761772	TMC8	ENSG00000167895
+Glycated hemoglobin levels	+3	rs2748427	TMC8	ENSG00000167895
+Glycated hemoglobin levels	+3	rs11248914	FAM234A	ENSG00000167930
+Glycated hemoglobin levels	+3	rs12621844	FOXN2	ENSG00000170802
+Glycated hemoglobin levels	+3	rs579459	ABO	ENSG00000175164
+Glycated hemoglobin levels	+3	rs6980507	SMIM19	ENSG00000176209
+Glycated hemoglobin levels	+3	rs2375278	TMEM50A	ENSG00000183726
+Glycated hemoglobin levels	+3	rs4783565	ZFP90	ENSG00000184939
+Glycated hemoglobin levels	+3	rs12132919	SEMA4A	ENSG00000196189
+Glycated hemoglobin levels	+3	rs6684514	SEMA4A	ENSG00000196189
+Glycated hemoglobin levels	+3	rs13134327	GYPE	ENSG00000197465
+Glycated hemoglobin levels	+3	rs12132919	GLMP	ENSG00000198715
+Glycated hemoglobin levels	+3	rs6684514	GLMP	ENSG00000198715
+Hip circumference	+3	rs16894959	UHRF1BP1	ENSG00000065060
+Hip circumference	+3	rs9469761	UHRF1BP1	ENSG00000065060
+Hip circumference	+3	rs131737	CHKB	ENSG00000100288
+Hip circumference	+3	rs143384	UQCC1	ENSG00000101019
+Hip circumference	+3	rs34898535	BCKDK	ENSG00000103507
+Hip circumference	+3	rs4889606	BCKDK	ENSG00000103507
+Hip circumference	+3	rs12446632	KNOP1	ENSG00000103550
+Hip circumference	+3	rs3087591	EVI2A	ENSG00000126860
+Hip circumference	+3	rs1808579	C18orf8	ENSG00000141452
+Hip circumference	+3	rs177430	C18orf8	ENSG00000141452
+Hip circumference	+3	rs1561277	TMEM163	ENSG00000152128
+Hip circumference	+3	rs4988235	TMEM163	ENSG00000152128
+Hip circumference	+3	rs2112347	POC5	ENSG00000152359
+Hip circumference	+3	rs958374	FAM167A	ENSG00000154319
+Hip circumference	+3	rs2705666	RWDD2B	ENSG00000156253
+Hip circumference	+3	rs4985155	NTAN1	ENSG00000157045
+Hip circumference	+3	rs4889606	ZNF668	ENSG00000167394
+Hip circumference	+3	rs7632381	ZBTB38	ENSG00000177311
+Hip circumference	+3	rs10846580	ZNF664	ENSG00000179195
+Hip circumference	+3	rs34158769	ZKSCAN4	ENSG00000187626
+Hip circumference	+3	rs16894959	C6orf106	ENSG00000196821
+Hip circumference	+3	rs6163	AS3MT	ENSG00000214435
+Red blood cell count	+3	rs11657639	SNX11	ENSG00000002919
+Red blood cell count	+3	rs3809627	YPEL3	ENSG00000090238
+Red blood cell count	+3	rs140522	LMF2	ENSG00000100258
+Red blood cell count	+3	rs140522	CHKB	ENSG00000100288
+Red blood cell count	+3	rs1046276	BCKDK	ENSG00000103507
+Red blood cell count	+3	rs1799918	LYL1	ENSG00000104903
+Red blood cell count	+3	rs11085824	LYL1	ENSG00000104903
+Red blood cell count	+3	rs56397034	LYL1	ENSG00000104903
+Red blood cell count	+3	rs2853333	MAG	ENSG00000105695
+Red blood cell count	+3	rs62310771	UGDH	ENSG00000109814
+Red blood cell count	+3	rs34390795	FBRSL1	ENSG00000112787
+Red blood cell count	+3	rs1175550	CEP104	ENSG00000116198
+Red blood cell count	+3	rs174533	MYRF	ENSG00000124920
+Red blood cell count	+3	rs7607369	VIL1	ENSG00000127831
+Red blood cell count	+3	rs12718598	FIGNL1	ENSG00000132436
+Red blood cell count	+3	rs6592965	FIGNL1	ENSG00000132436
+Red blood cell count	+3	rs13203155	CD164	ENSG00000135535
+Red blood cell count	+3	rs9400273	CD164	ENSG00000135535
+Red blood cell count	+3	rs11966072	CD164	ENSG00000135535
+Red blood cell count	+3	rs13191948	CD164	ENSG00000135535
+Red blood cell count	+3	rs6568571	CD164	ENSG00000135535
+Red blood cell count	+3	rs9487023	CD164	ENSG00000135535
+Red blood cell count	+3	rs3809627	TBX6	ENSG00000149922
+Red blood cell count	+3	rs34723331	ST5	ENSG00000166444
+Red blood cell count	+3	rs7213285	PROCA1	ENSG00000167525
+Red blood cell count	+3	rs2732480	ZNF641	ENSG00000167528
+Red blood cell count	+3	rs2748424	TMC8	ENSG00000167895
+Red blood cell count	+3	rs2748427	TMC8	ENSG00000167895
+Red blood cell count	+3	rs509360	RAB3IL1	ENSG00000167994
+Red blood cell count	+3	rs760077	MTX1	ENSG00000173171
+Red blood cell count	+3	rs6780250	GK5	ENSG00000175066
+Red blood cell count	+3	rs495828	ABO	ENSG00000175164
+Red blood cell count	+3	rs579459	ABO	ENSG00000175164
+Red blood cell count	+3	rs10901252	ABO	ENSG00000175164
+Red blood cell count	+3	rs12216891	ABO	ENSG00000175164
+Red blood cell count	+3	rs2239760	UNC119B	ENSG00000175970
+Red blood cell count	+3	rs2923411	SMIM19	ENSG00000176209
+Red blood cell count	+3	rs10766533	ZDHHC13	ENSG00000177054
+Red blood cell count	+3	rs7625643	ZBTB38	ENSG00000177311
+Red blood cell count	+3	rs11627485	FNTB	ENSG00000257365
+Red blood cell count	+3	rs11627485	CHURC1	ENSG00000258289
+Plasma free amino acid levels	+3	rs2242508	SUMF2	ENSG00000129103
+Plasma free amino acid levels	+3	rs7782243	SUMF2	ENSG00000129103
+Plasma free amino acid levels	+3	rs7793921	SUMF2	ENSG00000129103
+Plasma free amino acid levels	+3	rs816411	SUMF2	ENSG00000129103
+Plasma free amino acid levels	+3	rs12671091	SUMF2	ENSG00000129103
+Plasma free amino acid levels	+3	rs13244654	SUMF2	ENSG00000129103
+Plasma free amino acid levels	+3	rs4535700	PHKG1	ENSG00000164776
+Plasma free amino acid levels	+3	rs7793921	PHKG1	ENSG00000164776
+Plasma free amino acid levels	+3	rs2657879	SPRYD4	ENSG00000176422
+Plasma free amino acid levels	+3	rs7302925	SPRYD4	ENSG00000176422
+Plasma free amino acid levels	+3	rs12671091	ZNF713	ENSG00000178665
+Plasma free amino acid levels	+3	rs7793921	ZNF713	ENSG00000178665
+Plasma free amino acid levels	+3	rs4535700	ZNF713	ENSG00000178665
+Plasma free amino acid levels	+3	rs2135116	ZNF713	ENSG00000178665
+Plasma omega-6 polyunsaturated fatty acid levels (linoleic acid)	+3	rs174578	MYRF	ENSG00000124920
+Plasma omega-6 polyunsaturated fatty acid levels (linoleic acid)	+3	rs174547	MYRF	ENSG00000124920
+Plasma omega-6 polyunsaturated fatty acid levels (linoleic acid)	+3	rs11827215	MYRF	ENSG00000124920
+Plasma omega-6 polyunsaturated fatty acid levels (linoleic acid)	+3	rs174550	MYRF	ENSG00000124920
+Plasma omega-6 polyunsaturated fatty acid levels (linoleic acid)	+3	rs3229	GXYLT1	ENSG00000151233
+Plasma omega-6 polyunsaturated fatty acid levels (linoleic acid)	+3	rs7312933	GXYLT1	ENSG00000151233
+Plasma omega-6 polyunsaturated fatty acid levels (linoleic acid)	+3	rs2280018	NTAN1	ENSG00000157045
+Circulating chemerin levels	+4	rs6946097	ZBED6CL	ENSG00000188707
+Circulating chemerin levels	+4	rs10259796	ZBED6CL	ENSG00000188707
+Circulating chemerin levels	+4	rs9640161	ZBED6CL	ENSG00000188707
+Mean arterial pressure x alcohol consumption interaction (2df test)	+4	rs7302816	POC1B	ENSG00000139323
+Mean arterial pressure x alcohol consumption interaction (2df test)	+4	rs7299436	POC1B	ENSG00000139323
+Mean arterial pressure x alcohol consumption interaction (2df test)	+4	rs11105352	POC1B	ENSG00000139323
+Mean arterial pressure x alcohol consumption interaction (2df test)	+4	rs111478946	POC1B	ENSG00000139323
+Mean arterial pressure x alcohol consumption interaction (2df test)	+4	rs2306363	KCNK7	ENSG00000173338
+Mean arterial pressure	+4	rs12579302	POC1B	ENSG00000139323
+Mean arterial pressure	+4	rs17249754	POC1B	ENSG00000139323
+Mean arterial pressure	+4	rs2681492	POC1B	ENSG00000139323
+Mean arterial pressure	+4	rs2681472	POC1B	ENSG00000139323
+Mean arterial pressure	+4	rs11105364	POC1B	ENSG00000139323
+Mean arterial pressure	+4	rs111478946	POC1B	ENSG00000139323
+Mean arterial pressure	+4	rs78399431	GPR146	ENSG00000164849
+Mean arterial pressure	+4	rs12801636	KCNK7	ENSG00000173338
+Leprosy	+4	rs8002861	CCDC122	ENSG00000151773
+Leprosy	+4	rs3764147	CCDC122	ENSG00000151773
+Leprosy	+4	rs2221593	FLVCR1	ENSG00000162769
+Leprosy	+4	rs663743	CCDC88B	ENSG00000168071
+Leprosy	+4	rs538147	CCDC88B	ENSG00000168071
