@@ -98,7 +98,11 @@ read_left_ventricle_data<-function(chr) {
 ```{r}
 #gtex gtf table
 #Remove the Y chr since it has gene names same as those in X axis but they have different positions
+<<<<<<< HEAD
 gene_ref<-read.table("./data/gencode.v26.GRCh38.genes.gtf.gz", sep="\t") %>% 
+=======
+gene_ref<-read.table("./data/gencode.v26.GRCh38.genes.gtf", sep="\t") %>% 
+>>>>>>> b3798f509b9097137cf682f9fea3072d727298a8
    mutate(gene_id=str_extract(V9, regex("(ENSG[0-9]{11})"))) %>% #only use gencode number to increase match number between ref and gtex data
   filter(V3=="gene") %>% 
   filter(!(V1=="chrY")) %>% 
