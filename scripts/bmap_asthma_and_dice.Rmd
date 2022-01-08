@@ -1,0 +1,166 @@
+---
+title: "bmap_asthma_and_dice"
+author: "Roan Zaied"
+date: "2/9/2021"
+output: html_document
+---
+#fig 3, 4, and Suppl.5
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir = "/home/rstudio/")
+```
+
+```{r}
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(tidyverse,vroom,gprofiler2,pheatmap,stringr,gdata,plyr,"RColorBrewer",eulerr,reshape2,gplots)
+```
+
+## R Markdown
+#READ ALL DICE DATA and parse to combined file
+```{r}
+dice_data<-vroom("./data/combined_DICE_data.tsv.gz", delim="\t", col_select = c("eQTL_eGene", "Group", "beta", "ID")) %>% distinct()
+```
+
+#read in bmap
+```{r}
+bmap<-vroom("./data/blood_grn_sig.txt.gz", delim="\t", col_select = c("gencode_id","ensembl_gene_id", "snp", "gene", "eQTL_eGene"))
+   
+bmap_eQTL_eGenes <- bmap%>% dplyr::select("eQTL_eGene") %>% distinct()
+```
+
+
+
+```{r}
+#Just to see how many snps in DICE are not annotated (523 are ".")
+dice_data %>% filter(dice_data$ID==".")
+```
+
+#find UNIQUE eQTL-eGene pairs in DICE (EXCLUDING CELL TYPE INFO)
+```{r}
+dice_eQTL_eGenes <- dice_data %>% dplyr::select(eQTL_eGene) %>% distinct()
+
+nrow(dice_eQTL_eGenes)
+#find shared eQTLs b/w dice and bmap
+unique_overlap_bmap_dice <- merge(bmap_eQTL_eGenes, dice_eQTL_eGenes, by="eQTL_eGene") %>% nrow()
+```
+
+#VENN DIAGRAM OF SHARED VS UNIQUE EQTLS
+```{r}
+bmap_only <- bmap_eQTL_eGenes %>% dplyr::select(eQTL_eGene) %>%  filter(!(eQTL_eGene %in% dice_eQTL_eGenes$eQTL_eGene)) %>% nrow()
+
+dice_only<- dice_eQTL_eGenes %>% dplyr::select(eQTL_eGene) %>% filter(!(eQTL_eGene %in% bmap_eQTL_eGenes$eQTL_eGene )) %>% nrow()
+
+dice_bmap<-euler(c("A" = bmap_only, "B" = dice_only,
+                           "A&B" = unique_overlap_bmap_dice), shape = "ellipse")
+```
+
+#plot
+```{r}
+Figure4a<-plot(dice_bmap,legend = list(cex=0.9, labels = c("Blood map eQTL-eGene interactions","DICE eQTL-eGene interactions")),
+                        fills = list(fill = c("floralwhite", "darkorange"), alpha = 0.65), quantities = c(TRUE, list(cex=0.97, font= 3)),
+                        labels = FALSE)
+```
+
+```{r}
+#save as pdf
+# pdf("./plots/Figure4a.pdf", height=7, width=7, paper = "USr")
+# print(Figure4a)
+# dev.off()
+```
+
+#Find eQTL-eGene pairs shared b/w bmap and dice (per cell type)
+```{r}
+overlap_bmap_dice<-inner_join(bmap_eQTL_eGenes, dice_data, by="eQTL_eGene") %>% dplyr::select("eQTL_eGene", "Group", "beta") %>% distinct() %>% as.data.frame()
+
+nrow(overlap_bmap_dice)
+```
+
+#MAKE HEATMAP
+```{r}
+overlap_bmap_dice_wide<-reshape(overlap_bmap_dice, idvar = "eQTL_eGene", timevar = "Group", direction = "wide")
+#Remove "beta" from col names
+names(overlap_bmap_dice_wide)<-gsub("beta.", "", names(overlap_bmap_dice_wide))
+
+#remove nas 
+overlap_no_na<-na.omit(overlap_bmap_dice_wide)
+
+#Make eQTL_eGene pair as row names
+row.names(overlap_no_na)<-overlap_no_na$eQTL_eGene
+overlap_no_na<-overlap_no_na %>% dplyr::select(-eQTL_eGene) 
+
+#plot raw data to visualize 
+pheatmap(overlap_no_na, col=colorRampPalette(rev(brewer.pal(n=11,"RdBu")))(100),show_rownames = F, treeheight_row = 0)
+```
+
+#Plot correlation matrix
+```{r}
+Figure4b<-pheatmap(cor(overlap_no_na),  col=colorRampPalette(brewer.pal(n=9,"Reds"))(100))
+```
+
+#save as pdf
+```{r}
+# pdf("./plots/Figure4b.pdf", height=6, width=7, paper = "USr")
+# print(Figure4b)
+# dev.off()
+```
+
+#Plot
+```{r}
+#using zscores 
+Figure4c<-pheatmap(overlap_no_na, col=colorRampPalette(rev(brewer.pal(n=11,"RdBu")))(100),show_rownames = F, scale="row", treeheight_row = 0)
+
+```
+# #save as pdf
+```{r}
+# pdf("./plots/Figure4c.pdf", height=7, width=7, paper = "USr")
+# print(Figure4c)
+# dev.off()
+```
+
+
+
+#HEATMAP FOR ASTHMA AND DICE DATA
+#load GWAS catalog
+```{r}
+gwas_catalog<- read.csv("./data/gwas_catalog_v1.0.2-associations_e100_r2021-05-19.tsv.gz", sep = "\t",  stringsAsFactors=F) %>% dplyr::select("DISEASE.TRAIT", "REPORTED.GENE.S.", "MAPPED_GENE", "P.VALUE", "STUDY.ACCESSION" , "SNPS") %>% dplyr::rename("snp"=SNPS)
+```
+
+#find genes associated with term "Asthma" in GWAS catalog (383 asthma SNPs)
+```{r}
+asthma_gwas_snps <- gwas_catalog %>% filter(DISEASE.TRAIT == "Asthma") %>% dplyr::select(snp) %>% distinct()
+```
+
+#find asthma eQTLs and eGenes (132 eGenes)
+```{r}
+#122 eQTLs
+asthma_eQTLs <- inner_join(bmap, asthma_gwas_snps, by= "snp") %>% dplyr::select(snp) %>% distinct()
+
+#302 eQTL-eGenes
+asthma_eQTL_eGenes <- inner_join(bmap, asthma_gwas_snps, by= "snp") %>% dplyr::select(ensembl_gene_id, snp) %>% distinct() %>% mutate("eQTL_eGene" = paste0(snp,"_", ensembl_gene_id)) %>% dplyr::select(eQTL_eGene) %>% distinct()
+
+#132 eGenes
+asthma_egenes <- inner_join(bmap, asthma_gwas_snps, by= "snp") %>% dplyr::select(ensembl_gene_id) %>% distinct()
+```
+
+#Na's were not ommited, instead just colored white (NA= eQTL-eGene pair not present)
+#Find eQTL-eGene pairs shared b/w asthma and DICE per cell type
+#Note none of asthma eQTLs are shared across all cell types
+```{r}
+overlap_asthma_dice_wide<-merge(dice_data, asthma_eQTL_eGenes, by="eQTL_eGene") %>% distinct() %>% pivot_wider(names_from = "Group", values_from="beta") %>% column_to_rownames("eQTL_eGene") %>% dplyr::select(-ID) %>% as.matrix()
+
+#REPLACE NA VALUES (absent eQTL-eGene pair) with 0s to allow clustering of rows/cols
+overlap_asthma_dice_wide[is.na(overlap_asthma_dice_wide)] <- 0
+```
+
+#plot using zscore transformation #Plot (Fig. 5a)
+```{r}
+Figure5a<-pheatmap(overlap_asthma_dice_wide, cluster_rows = T, cluster_cols = T, show_rownames = F,scale="row", col=colorRampPalette(rev(brewer.pal(n=11,"RdBu")))(100), treeheight_row = 0, border_color=NA)
+```
+#save as pdf
+```{r}
+# pdf("./plots/Figure5a.pdf", height=6, width=7, paper = "USr")
+# print(Figure5a)
+# dev.off()
+```
+
+
