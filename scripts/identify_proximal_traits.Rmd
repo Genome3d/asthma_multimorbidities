@@ -1,0 +1,653 @@
+---
+title: "stringdb_plus_x"
+author: "Roan"
+date: "7/10/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir = "/home/rstudio/")
+```
+
+```{r}
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(tidyverse,stringr,pheatmap,gplots,gdata,reshape2
+,dplyr,plyr,RColorBrewer,STRINGdb,vroom,biomaRt,tidyverse,gprofiler2,stringr)
+```
+
+#read bmap data
+```{r}
+bmap<-vroom("data/blood_grn_sig.txt.gz", delim="\t", col_select = c("gencode_id", "snp", "gene", "interaction_type", "eQTL_eGene")) %>% as.data.frame() %>%
+   mutate("ensembl_gene_id"=str_extract(gencode_id, regex("(ENSG[0-9]{11})")))
+
+bmap_gene_ids <- bmap %>% dplyr::select(ensembl_gene_id) %>% distinct()
+```
+
+#find string interactions
+```{r}
+# string_db<- STRINGdb$new(version="11", species=9606, score_threshold=700)
+# string_db
+# 
+# #of 14,871 bmap genes, 11,732 had stringID
+# bmap_mapped <- string_db$map(bmap_gene_ids, "ensembl_gene_id", removeUnmappedRows = TRUE)
+```
+
+#find their PPIs:
+```{r}
+# hits <- bmap_mapped$STRING_id
+# head(hits)
+# bmap_interactions<-string_db$get_interactions(hits) %>%  lapply(function(x) {
+#                   gsub("9606.", "", x)}) %>% as.data.frame() %>% dplyr::select(-combined_score) %>% distinct()
+```
+
+
+#converting protein ids back to ensmbl gene id using biomart
+```{r}
+# mart <- biomaRt::useMart(biomart = "ENSEMBL_MART_ENSEMBL",
+#                          dataset = "hsapiens_gene_ensembl",
+#                          host = "http://www.ensembl.org")
+# 
+# martFilters<-listFilters(mart)
+# 
+# bmap_interactions_from_ensmbl<- getBM(filters = "ensembl_peptide_id",
+#                attributes = c("ensembl_peptide_id", "ensembl_gene_id"),
+#                values = bmap_interactions$from,
+#                mart = mart) %>% na.omit %>% distinct()
+# 
+# bmap_interactions_to_ensmbl<- getBM(filters = "ensembl_peptide_id",
+#                attributes = c("ensembl_peptide_id","ensembl_gene_id"),
+#                values = bmap_interactions$to,
+#                mart = mart) %>% na.omit %>% distinct()
+# 
+# #rename to merge with string's interactions
+# bmap_interactions_from_ensmbl<-bmap_interactions_from_ensmbl %>% dplyr::rename(from="ensembl_peptide_id", ensembl_gene_id_from = "ensembl_gene_id")
+# 
+# bmap_interactions_to_ensmbl<-bmap_interactions_to_ensmbl %>% dplyr::rename(to="ensembl_peptide_id", ensembl_gene_id_to="ensembl_gene_id")
+# 
+# #8830 "from" proteins, of those, #8645 have ensmbl ids
+# bmap_interactions %>% dplyr::select(from) %>% distinct() %>% nrow
+# bmap_interactions_from_ensmbl %>% dplyr::select(ensembl_gene_id_from) %>% distinct() %>% nrow
+# 
+# #9148 "to"proteins, of those, 8941 have ensmbl ids
+# bmap_interactions %>% dplyr::select(to) %>% distinct() %>% nrow
+# bmap_interactions_to_ensmbl %>% dplyr::select(ensembl_gene_id_to) %>% distinct() %>% nrow
+# 
+# #join to now have "to and from" columns that are in ensmbl id format
+# ensmbl_ref_bmap_ppin<-inner_join(bmap_interactions, bmap_interactions_from_ensmbl, by="from" ) %>% inner_join(bmap_interactions_to_ensmbl, by="to")
+# 
+# bmap_subgraph <- ensmbl_ref_bmap_ppin %>% dplyr::select(ensembl_gene_id_from, ensembl_gene_id_to) %>% distinct() %>% #make sure blood map has blood map genes only dplyr::filter(ensembl_gene_id_from %in% bmap_gene_ids$ensembl_gene_id & ensembl_gene_id_to %in% bmap_gene_ids$ensembl_gene_id)
+
+# write.table(bmap_subgraph, file = "./results/bmap_subgraph.txt", sep = "\t", col.names = TRUE, row.names=FALSE, quote=F)
+
+bmap_subgraph <- read.table("./results/bmap_subgraph.txt", header = TRUE, sep="\t")
+```
+
+#find genes associated with asmtha/its multimorbidities in GWAS catalog
+```{r}
+gwas_catalog<- read.csv("./data/gwas_catalog_v1.0.2-associations_e100_r2021-05-19.tsv.gz", sep = "\t",  stringsAsFactors=F) %>% dplyr::select("DISEASE.TRAIT", "REPORTED.GENE.S.", "MAPPED_GENE", "P.VALUE", "STUDY.ACCESSION" , "SNPS") %>% dplyr::rename("snp"=SNPS)
+```
+#383 asthma SNPs
+```{r}
+asthma_gwas_snps <- gwas_catalog %>% filter(DISEASE.TRAIT == "Asthma") %>% dplyr::select(snp) %>% distinct()
+# write.table(asthma_gwas_snps, file = "./results/asthma_associated_gwas_snps.txt", sep = "\t", col.names = TRUE, row.names=FALSE, quote=F)
+```
+
+#find snps from bmap and select egenes (132 eGenes)
+```{r}
+#122
+asthma_eQTLs<- inner_join(bmap, asthma_gwas_snps, by= "snp") %>% dplyr::select(snp) %>% distinct()
+
+#302 eQTLs-eGene pairs
+asthma_eQTL_egenes <- inner_join(bmap, asthma_gwas_snps, by= "snp") %>% dplyr::select(ensembl_gene_id, snp) %>% distinct()
+
+#write.table(asthma_eQTL_egenes, file = "./results/asthma_eQTL_egenes .txt", sep = "\t", col.names = TRUE, row.names=FALSE, quote=F)
+
+#132 eGenes
+asthma_egenes <- inner_join(bmap, asthma_gwas_snps, by= "snp") %>% dplyr::select(ensembl_gene_id) %>% distinct()
+```
+
+#find asthma subgraph 
+```{r}
+#interactions involving ONLY asthma eGenes
+asthma_subgraph<- bmap_subgraph %>% filter(bmap_subgraph$ensembl_gene_id_from %in% asthma_egenes$ensembl_gene_id & bmap_subgraph$ensembl_gene_id_to %in% asthma_egenes$ensembl_gene_id) %>% distinct() 
+
+# write.table(asthma_subgraph, file = "./results/asthma_subgraph.txt", sep = "\t", col.names = TRUE, row.names=FALSE, quote=F)
+
+```
+
+#go enrichment function
+```{r GO_analysis, fig.width=12, fig.height=5}
+# This function quieries g:GOSt module of the g:Profiler tool. It takes a vector of genes and quieries the GOSt module. It outputs the dataframe with the query results for the genes.
+query_go <- function(genes){
+    tryCatch({
+        t <- gost(query = genes, organism = "hsapiens", ordered_query = FALSE,
+                  multi_query = FALSE, significant = TRUE, exclude_iea = FALSE,
+                  measure_underrepresentation = FALSE, evcodes = FALSE,
+                  user_threshold = 0.05, correction_method = "fdr",
+                  domain_scope = "annotated", custom_bg = NULL,
+                  numeric_ns = "", sources = c("GO", "KEGG", "REAC"), as_short_link = FALSE)
+        return(t[["result"]])
+        }, error=function(e){
+            cat("ERROR: ", conditionMessage(e), "\n")
+        })
+}
+```
+
+
+#what are the asthma eGENES enriched for?
+```{r}
+# asthma_go <- query_go(asthma_egenes$ensembl_gene_id)
+# #change list to character to allow writing of tables to disc
+# asthma_go$parents <- vapply(asthma_go$parents, paste, collapse = ", ", character(1L))
+# write.table(asthma_go, file = "./results/asthma_egenes_go_enrichment.txt", sep = "\t", col.names = TRUE, row.names=FALSE)
+
+# 
+asthma_go <- read.table("./results/asthma_egenes_go_enrichment.txt", header = TRUE, sep="\t")
+asthma_go_bp <-asthma_go[grep('GO:BP',asthma_go[, "source"]), ] # extracting only the 'GO:BP' terms
+asthma_go_bp_top20 <- as.data.frame(asthma_go_bp[1:20,])
+
+
+
+FigureS3a<-ggplot(asthma_go_bp_top20, aes(x=reorder(term_name, -p_value),
+                        y=-log10(as.numeric(p_value)), fill="cyan4")) +
+    geom_bar(stat="identity") +
+    theme_classic() +
+    theme(plot.title = element_blank(),
+          axis.title.x = element_text(size=9, colour = "black"),
+          axis.text=element_text(size=9, colour = "black"),
+          axis.title.y = element_blank(),
+          legend.position = "none") +
+    scale_fill_manual(values=c("cyan4")) +
+    labs(y = "-log10(p)") +
+    geom_hline(aes(yintercept=-log10(as.numeric(0.05))), colour = "firebrick", size = 1) +
+    coord_flip()
+
+
+
+asthma_go_mf <- asthma_go[grep('GO:MF', asthma_go[, "source"]), ] # extracting only the 'GO:MF' terms
+asthma_go_mf_top20 <- as.data.frame(asthma_go_mf[1:20,])
+FigureS3b<-ggplot(asthma_go_mf_top20, aes(x=reorder(term_name, -p_value),
+                       y=-log10(as.numeric(p_value)), fill="cyan4")) +
+    geom_bar(stat="identity") +
+    theme_classic() +
+    theme(plot.title = element_blank(),
+          axis.title.x = element_text(size=9, colour = "black"),
+          axis.text=element_text(size=9, colour = "black"),
+          axis.title.y = element_blank(),
+          legend.position = "none") +
+    scale_fill_manual(values=c("cyan4")) +
+    labs(y = "-log10(p)") +
+    geom_hline(aes(yintercept=-log10(as.numeric(0.05))), colour = "firebrick", size = 1) +
+    coord_flip()
+
+
+asthma_go_cc <- asthma_go[grep('GO:CC', asthma_go[, "source"]), ] # extracting only the 'GO:CC' terms
+asthma_go_cc_top20 <- as.data.frame(asthma_go_cc[1:20,])
+
+asthma_go_reac <- asthma_go[grep('REAC', asthma_go[, "source"]), ]
+asthma_go_reac_top20 <- as.data.frame(asthma_go_reac[1:20,])
+
+FigureS3c<-ggplot(asthma_go_reac_top20, aes(x=reorder(term_name, -p_value),
+                       y=-log10(as.numeric(p_value)), fill="cyan4")) +
+    geom_bar(stat="identity") +
+    theme_classic() +
+    theme(plot.title = element_blank(),
+          axis.title.x = element_text(size=9, colour = "black"),
+          axis.text=element_text(size=9, colour = "black"),
+          axis.title.y = element_blank(),
+          legend.position = "none") +
+    scale_fill_manual(values=c("cyan4")) +
+    labs(y = "-log10(p)") +
+    geom_hline(aes(yintercept=-log10(as.numeric(0.05))), colour = "firebrick", size = 1) +
+    coord_flip()
+
+```
+
+
+#SAVE PLOTS
+```{r}
+# pdf("./plots/FigureS3a.pdf", width = 15, height = 7, paper="USr")
+# print(FigureS3a)
+# dev.off()
+# 
+# pdf("./plots/FigureS3b.pdf", width = 15, height = 7,paper="USr")
+# print(FigureS3b)
+# dev.off()
+# 
+# pdf("./plots/FigureS3c.pdf", width =5.5, height = 7, paper="USr")
+# print(FigureS3c)
+# dev.off()
+```
+
+#function to find plus ones 
+```{r}
+find_plus_ones <- function(bmap_subgraph, plus_zero_egenes_list) {
+  
+  #find which genes in the bmap subgraph do they interact with 
+  trait_subgraph <- bmap_subgraph %>% filter(bmap_subgraph$ensembl_gene_id_from %in% plus_zero_egenes_list$ensembl_gene_id| bmap_subgraph$ensembl_gene_id_to %in% plus_zero_egenes_list$ensembl_gene_id) %>% distinct()
+  
+  source_nodes<- trait_subgraph$ensembl_gene_id_from %>% as.data.frame() %>% distinct()
+target_nodes <- trait_subgraph$ensembl_gene_id_to %>% as.data.frame() %>% distinct()
+
+  plus_ones<- rbind(source_nodes, target_nodes) %>% distinct() %>%  dplyr::rename("ensembl_gene_id"=".") %>% filter(!(ensembl_gene_id %in% plus_zero_egenes_list$ensembl_gene_id))
+  
+  return(plus_ones)
+}
+
+```
+
+#function to find plus twos 
+```{r}
+
+find_plus_twos <- function(bmap_subgraph, plus_zero_egenes_list, plus_ones_egenes_list) {
+  
+  #find which genes in the bmap subgraph do they interact with 
+  trait_subgraph <- bmap_subgraph %>% filter(bmap_subgraph$ensembl_gene_id_from %in% plus_ones_egenes_list$ensembl_gene_id| bmap_subgraph$ensembl_gene_id_to %in% plus_ones_egenes_list$ensembl_gene_id) %>% distinct()
+  
+  source_nodes<- trait_subgraph$ensembl_gene_id_from %>% as.data.frame() %>% distinct()
+target_nodes <- trait_subgraph$ensembl_gene_id_to %>% as.data.frame() %>% distinct()
+
+  plus_twos<- rbind(source_nodes, target_nodes) %>% distinct() %>%  dplyr::rename("ensembl_gene_id"=".") %>% #remove plus ones and ALL egenes
+  filter(!(ensembl_gene_id %in% plus_ones_egenes_list$ensembl_gene_id | ensembl_gene_id %in% plus_zero_egenes_list$ensembl_gene_id))
+
+  return(plus_twos)
+}
+
+```
+
+#function to find plus threes
+```{r}
+
+find_plus_threes <- function(bmap_subgraph, plus_zero_egenes_list, plus_ones_egenes_list, plus_twos_egenes_list) {
+  
+  #find which genes in the bmap subgraph do they interact with 
+  trait_subgraph <- bmap_subgraph %>% filter(bmap_subgraph$ensembl_gene_id_from %in% plus_twos_egenes_list$ensembl_gene_id| bmap_subgraph$ensembl_gene_id_to %in% plus_twos_egenes_list$ensembl_gene_id) %>% distinct()
+  
+  source_nodes<- trait_subgraph$ensembl_gene_id_from %>% as.data.frame() %>% distinct()
+target_nodes <- trait_subgraph$ensembl_gene_id_to %>% as.data.frame() %>% distinct()
+
+  plus_threes<- rbind(source_nodes, target_nodes) %>% distinct() %>%  dplyr::rename("ensembl_gene_id"=".") %>% #remove plus ones and ALL egenes
+  filter(!(ensembl_gene_id %in% plus_ones_egenes_list$ensembl_gene_id | ensembl_gene_id %in% plus_zero_egenes_list$ensembl_gene_id |  ensembl_gene_id %in% plus_twos_egenes_list$ensembl_gene_id))
+
+  return(plus_threes)
+}
+
+```
+
+#function to find plus fours
+```{r}
+
+find_plus_fours <- function(bmap_subgraph, plus_zero_egenes_list, plus_ones_egenes_list, plus_twos_egenes_list, plus_threes_egenes_list) {
+  
+  #find which genes in the bmap subgraph do they interact with 
+  trait_subgraph <- bmap_subgraph %>% filter(bmap_subgraph$ensembl_gene_id_from %in% plus_threes_egenes_list$ensembl_gene_id| bmap_subgraph$ensembl_gene_id_to %in% plus_threes_egenes_list$ensembl_gene_id) %>% distinct()
+  
+  source_nodes<- trait_subgraph$ensembl_gene_id_from %>% as.data.frame() %>% distinct()
+target_nodes <- trait_subgraph$ensembl_gene_id_to %>% as.data.frame() %>% distinct()
+
+  plus_fours<- rbind(source_nodes, target_nodes) %>% distinct() %>%  dplyr::rename("ensembl_gene_id"=".") %>% #remove plus ones and ALL egenes
+  filter(!(ensembl_gene_id %in% plus_ones_egenes_list$ensembl_gene_id | ensembl_gene_id %in% plus_zero_egenes_list$ensembl_gene_id |  ensembl_gene_id %in% plus_twos_egenes_list$ensembl_gene_id |  ensembl_gene_id %in% plus_threes_egenes_list$ensembl_gene_id))
+
+  return(plus_fours)
+}
+
+```
+
+#fucntion to find the traits associated with set of genes' eQTLs
+```{r}
+find_associated_traits <- function(plus_x_annotated, gwas_catalog) {
+
+trait_count_plus_x <- inner_join(plus_x_annotated, gwas_catalog, by="snp") %>% dplyr::select(snp, DISEASE.TRAIT) %>% distinct()  %>% #count how many plus ones eqtls are associated with each trait
+dplyr::count(DISEASE.TRAIT) %>% arrange(desc(n))
+  
+  return(trait_count_plus_x)
+}
+```
+
+#find which genes in the bmap subgraph do the asthma eGenes interact with 
+```{r}
+asthma_plus_ones <- find_plus_ones(bmap_subgraph, asthma_egenes)
+```
+
+#FIND which traits are the plus ones associated with
+```{r}
+#find eQTLs of plus ones 
+asthma_plus_ones_annotated <- merge(bmap, asthma_plus_ones, by ="ensembl_gene_id") %>% dplyr::select(snp, gene, ensembl_gene_id) %>%  distinct() 
+#n eQTLs are 186,436
+asthma_plus_ones_annotated %>% dplyr::select(snp) %>% distinct()
+asthma_disease_count_plus_ones <- find_associated_traits(asthma_plus_ones_annotated, gwas_catalog)
+```
+
+#find plus twos
+```{r}
+asthma_plus_twos<- find_plus_twos(bmap_subgraph, asthma_egenes, asthma_plus_ones)
+```
+
+#FIND which traits are associated with plut two eGenes' eQTLs
+```{r}
+asthma_plus_twos_annotated <- merge(bmap, asthma_plus_twos, by ="ensembl_gene_id") %>% dplyr::select(snp, gene, ensembl_gene_id) %>%  distinct() 
+#525,136 esnps
+asthma_plus_twos_annotated %>% dplyr::select(snp) %>% distinct
+
+asthma_disease_count_plus_twos <- find_associated_traits(asthma_plus_twos_annotated, gwas_catalog )
+```
+
+#find plus threes
+```{r}
+asthma_plus_threes<- find_plus_threes(bmap_subgraph, asthma_egenes, asthma_plus_ones, asthma_plus_twos)
+```
+
+
+#FIND which traits are the plus threes associated with
+```{r}
+asthma_plus_threes_annotated <- merge(bmap, asthma_plus_threes, by ="ensembl_gene_id") %>% dplyr::select(snp, gene, ensembl_gene_id) %>%  distinct() 
+
+asthma_plus_threes_annotated %>% dplyr::select(snp) %>% distinct() %>% nrow()
+
+asthma_disease_count_plus_threes <- find_associated_traits(asthma_plus_threes_annotated, gwas_catalog )
+```
+
+#find asthma plus fours
+```{r}
+asthma_plus_fours<- find_plus_fours(bmap_subgraph, asthma_egenes, asthma_plus_ones, asthma_plus_twos, asthma_plus_threes)
+```
+
+#FIND which traits are the plus four eGenes' eQTLs associated with
+```{r}
+asthma_plus_fours_annotated <- merge(bmap, asthma_plus_fours, by ="ensembl_gene_id") %>% dplyr::select(snp, gene, ensembl_gene_id) %>%  distinct() 
+
+asthma_plus_fours_annotated %>% dplyr::select(snp) %>% distinct() %>% nrow()
+asthma_disease_count_plus_fours <- find_associated_traits(asthma_plus_fours_annotated, gwas_catalog )
+```
+
+#function to calculate pval using hypergeometric distribution of all plus_x_eqtls
+```{r}
+compute_hypergeometric_pval <- function(asthma_plus_x_annotated, gwas_catalog, bmap, disease_count_plus_x_ordered) {
+
+#find TOTAL bmap eQTL_trait pairs which are annotated in catalog (#balls in urn = total #traits in catalog)
+catalog_eQTL_trait_pair <- gwas_catalog %>% dplyr::select(snp, DISEASE.TRAIT) %>% filter(snp %in% bmap$snp) %>% distinct()
+
+#Find number of plus one eQTL_trait pairs annotated in catalog (k)
+num_plus_x_in_catalog <-
+  catalog_eQTL_trait_pair %>% filter(snp %in% asthma_plus_x_annotated$snp) %>% distinct() %>% nrow()
+  
+#initiate pval df
+hypergeometric_pval_df <- c()
+#for each of the plus x traits
+for (trait_num in 1:nrow(disease_count_plus_x_ordered)) {
+  trait <- disease_count_plus_x_ordered[trait_num, 1]
+  #get number of plus_x eQTLs that map to that trait (x)
+  num_plus_x_eqtls_mapping_to_trait <-
+    disease_count_plus_x_ordered[trait_num, 2]
+  
+  #find number of bmap eQTL_trait in GWAS catalog that map to that same trait (m)
+  num_catalog_traits_mapping_to_trait <-
+    catalog_eQTL_trait_pair %>% filter(DISEASE.TRAIT == trait) %>% nrow()
+  
+  #find number of bmap eQTLs in GWAS catalog that don't map to that trait (n)
+  num_all_other_catalog_traits_in_bmap =  
+    nrow(catalog_eQTL_trait_pair) - num_catalog_traits_mapping_to_trait
+  
+  #compute pval
+  #phyper(x-1, m, n, k)
+  #(white balls drawn, all white balls, total-all white balls, balls drawn)
+
+  pval <-
+    phyper(
+      num_plus_x_eqtls_mapping_to_trait - 1 ,
+      num_catalog_traits_mapping_to_trait,
+      num_all_other_catalog_traits_in_bmap,
+      num_plus_x_in_catalog,
+      lower.tail = F
+    )
+  #append to pval df
+  
+  hypergeometric_pval_df <-
+    rbind(
+      hypergeometric_pval_df,
+      c(
+        trait,
+        pval,
+        num_plus_x_eqtls_mapping_to_trait,
+        num_catalog_traits_mapping_to_trait
+      )
+    )
+}
+
+hypergeometric_pval_df <-
+  hypergeometric_pval_df %>% as.data.frame()
+names(hypergeometric_pval_df) <-
+  c("trait", "pvalue", "n_eqtls", "n_eqtls_in_catalog")
+hypergeometric_pval_df <-
+  hypergeometric_pval_df %>% mutate(pvalue = as.numeric(pvalue)) %>% arrange(pvalue) %>% mutate(n_eqtls = as.numeric(n_eqtls))
+
+return(hypergeometric_pval_df)
+}
+```
+
+#plus ones pval
+```{r}
+hyperg_pval_df_plus_ones <- compute_hypergeometric_pval(asthma_plus_ones_annotated, gwas_catalog, bmap, asthma_disease_count_plus_ones) %>% mutate(level= "+1") 
+
+#plus twos pval
+hyperg_pval_df_plus_twos <- compute_hypergeometric_pval(asthma_plus_twos_annotated, gwas_catalog, bmap, asthma_disease_count_plus_twos) %>% mutate(level= "+2")
+
+#plus threes pval
+hyperg_pval_df_plus_threes <- compute_hypergeometric_pval(asthma_plus_threes_annotated, gwas_catalog, bmap, asthma_disease_count_plus_threes) %>% mutate(level= "+3") 
+
+#plus fours pval
+hyperg_pval_df_plus_fours <- compute_hypergeometric_pval(asthma_plus_fours_annotated, gwas_catalog, bmap, asthma_disease_count_plus_fours) %>% mutate(level= "+4") 
+```
+
+#FDR correction
+```{r}
+hyperg_pval_df_plus_ones_sig<- hyperg_pval_df_plus_ones %>% mutate(adj_pval = p.adjust(pvalue, method= "BH")) %>% filter(adj_pval <= 0.05)
+
+hyperg_pval_df_plus_twos_sig <- hyperg_pval_df_plus_twos %>% mutate(adj_pval = p.adjust(pvalue, method= "BH")) %>% filter(adj_pval <= 0.05)
+
+hyperg_pval_df_plus_threes_sig <- hyperg_pval_df_plus_threes %>% mutate(adj_pval = p.adjust(pvalue, method= "BH")) %>% filter(adj_pval <=0.05)
+
+hyperg_pval_df_plus_fours_sig <- hyperg_pval_df_plus_fours %>% mutate(adj_pval = p.adjust(pvalue, method= "BH")) %>% filter(adj_pval <=0.05)
+
+asthma_hyperg_pval_sig_combined <- hyperg_pval_df_plus_ones_sig %>% rbind(hyperg_pval_df_plus_twos_sig) %>% rbind(hyperg_pval_df_plus_threes_sig) %>% rbind(hyperg_pval_df_plus_fours_sig)
+```
+
+```{r}
+marker <- asthma_hyperg_pval_sig_combined$trait %>% unique()
+# make data square to calculate euclidean distance
+mat2 <- asthma_hyperg_pval_sig_combined %>% 
+  filter(trait %in% marker)  %>% 
+  dplyr::select(-pvalue, -n_eqtls_in_catalog, -adj_pval) %>%  # drop unused columns to faciliate widening
+  pivot_wider(names_from = level, values_from = n_eqtls) %>% 
+  data.frame() # make df as tibbles -> matrix annoying
+row.names(mat2) <- mat2$trait  # put gene in `row`
+mat2 <- mat2[,-1] #drop gene column as now in rows
+mat2[is.na(mat2)] <- 0 #populate NAS with 0s
+clust2 <- hclust(dist(mat2 %>% as.matrix())) 
+```
+
+#plot (Figure 6)
+```{r}
+Figure6<- asthma_hyperg_pval_sig_combined %>% filter(trait %in% marker) %>% 
+  mutate(trait = factor(trait, levels = rev(marker))) %>% 
+  ggplot(aes(x=level, y = trait, color = -log(adj_pval, 10) , size = n_eqtls )) + 
+  geom_point() + scale_color_gradientn(colours = viridis::viridis(20), limits = c(1,10), 
+                                       oob = scales::squish, name = '-log(pvalue, 10)') +ylab("GWAS trait") +theme_minimal()
+
+```
+#save plot
+```{r}
+# pdf("./plots/Figure6.pdf", width = 7.5, height = 7)
+# print(Figure6)
+# dev.off()
+```
+
+#for sig traits, create table listing eQTLs, eGenes, and interacting partners connecting them to asthma or ALL. 
+```{r}
+find_linking_mech <- function(plus_x_annotated, gwas_catalog, hyperg_pval_df_plus_x_sig) {
+  
+  #find the traits associated with the plus x eQTLs
+  plus_x_associations <- inner_join(plus_x_annotated, gwas_catalog, by="snp") %>% #"gene" and "ensmbl_gene_id" here represents spatial eGenes NOT GWAS mapped genes
+    dplyr::select(snp, DISEASE.TRAIT, gene, ensembl_gene_id) %>% distinct() %>% dplyr::rename("trait"="DISEASE.TRAIT")
+  
+plus_x_traits_and_mech <- # leave only the significantly enriched traits
+  inner_join(hyperg_pval_df_plus_x_sig, plus_x_associations, by="trait") %>% #to rearrange
+  dplyr::select(trait, level,pvalue, adj_pval, n_eqtls, n_eqtls_in_catalog,snp, gene, ensembl_gene_id) %>% distinct()
+
+  return(plus_x_traits_and_mech)
+}
+```
+
+```{r}
+plus_ones_traits_and_mech <- find_linking_mech(asthma_plus_ones_annotated,gwas_catalog, hyperg_pval_df_plus_ones_sig)
+plus_twos_traits_and_mech <- find_linking_mech(asthma_plus_twos_annotated,gwas_catalog, hyperg_pval_df_plus_twos_sig)
+plus_threes_traits_and_mech <- find_linking_mech(asthma_plus_threes_annotated,gwas_catalog, hyperg_pval_df_plus_threes_sig)
+plus_fours_traits_and_mech <- find_linking_mech(asthma_plus_fours_annotated,gwas_catalog, hyperg_pval_df_plus_fours_sig)
+asthma_traits_and_mech_combined<- plus_ones_traits_and_mech %>% rbind(plus_twos_traits_and_mech) %>% rbind(plus_threes_traits_and_mech) %>% rbind(plus_fours_traits_and_mech)
+```
+
+#save tables
+```{r}
+# asthma_traits_and_mech_combined %>% dplyr::select(-pvalue, -adj_pval, -n_eqtls, -n_eqtls_in_catalog)  %>% write.table(file = "./results/asthma_combined_traits_and_mech.txt", sep = "\t", col.names = TRUE, row.names=FALSE, quote=F)
+
+# asthma_traits_and_mech_combined %>% dplyr::select(trait, level, pvalue, adj_pval, n_eqtls, n_eqtls_in_catalog) %>% distinct() %>% write.table(file = "./results/asthma_summary_traits_and_mech.txt", sep = "\t", col.names = TRUE, row.names=FALSE, quote=F)
+```
+
+
+#Acute lymphoblastic leukemia (ALL)
+#find snps associated with ALL
+```{r}
+ALL_gwas_snps <- gwas_catalog %>% filter(DISEASE.TRAIT == "Acute lymphoblastic leukemia (childhood)") %>% dplyr::select(snp) %>% distinct()
+
+# write.table(ALL_gwas_snps, file = "./results/ALL(childhood)_associated_gwas_snp.txt", sep = "\t", col.names = TRUE, row.names=FALSE, quote=F)
+```
+
+#find snps from bmap and slelect egens
+```{r}
+ALL_egenes <- inner_join(bmap, ALL_gwas_snps, by= "snp") %>% dplyr::select(ensembl_gene_id) %>% distinct()
+```
+
+
+```{r}
+#interactions involving ONLY ALL eGenes
+ALL_subgraph<- bmap_subgraph %>% filter(bmap_subgraph$ensembl_gene_id_from %in% ALL_egenes$ensembl_gene_id & bmap_subgraph$ensembl_gene_id_to %in% ALL_egenes$ensembl_gene_id) %>% distinct() 
+```
+
+#find which genes in the bmap subgraph do they interact with 
+```{r}
+ALL_plus_ones <- find_plus_ones(bmap_subgraph, ALL_egenes)
+
+#FIND  which traits are the plus ones associated with
+ALL_plus_ones_annotated <- merge(bmap, ALL_plus_ones, by ="ensembl_gene_id") %>% dplyr::select(snp, gene, ensembl_gene_id) %>%  distinct() 
+
+ALL_disease_count_plus_ones <- find_associated_traits(ALL_plus_ones_annotated, gwas_catalog )
+```
+
+#find plus twos
+```{r}
+ALL_plus_twos <- find_plus_twos(bmap_subgraph, ALL_egenes, ALL_plus_ones)
+#FIND  which traits are the plus twos associated with
+
+ALL_plus_twos_annotated <- merge(bmap, ALL_plus_twos, by ="ensembl_gene_id") %>% dplyr::select(snp, gene, ensembl_gene_id) %>%  distinct()
+
+ALL_disease_count_plus_twos <- find_associated_traits(ALL_plus_twos_annotated, gwas_catalog)
+```
+
+#find plus threes
+```{r}
+#find which genes in the bmap subgraph do plus ones interact with 
+ALL_plus_threes <- find_plus_threes(bmap_subgraph, ALL_egenes, ALL_plus_ones, ALL_plus_twos)
+
+#FIND  which traits are the plus threes associated with
+
+ALL_plus_threes_annotated <- merge(bmap, ALL_plus_threes, by ="ensembl_gene_id") %>% dplyr::select(snp, gene, ensembl_gene_id) %>%  distinct()
+
+ALL_disease_count_plus_threes <- find_associated_traits(ALL_plus_threes_annotated, gwas_catalog)
+
+```
+
+#find ALL plus fours
+```{r}
+ALL_plus_fours <-  find_plus_fours(bmap_subgraph, ALL_egenes, ALL_plus_ones, ALL_plus_twos, ALL_plus_threes)
+
+#FIND  which traits are the plus fours associated with
+ALL_plus_fours_annotated <- merge(bmap, ALL_plus_fours, by ="ensembl_gene_id") %>% dplyr::select(snp, gene, ensembl_gene_id) %>% distinct()
+
+ALL_disease_count_plus_fours <- find_associated_traits(ALL_plus_fours_annotated, gwas_catalog)
+```
+
+#plus ones pval
+```{r}
+ALL_hyperg_pval_df_plus_ones <- compute_hypergeometric_pval(ALL_plus_ones_annotated, gwas_catalog, bmap, ALL_disease_count_plus_ones) %>% mutate(level= "+1") 
+```
+
+#plus twos pval
+```{r}
+ALL_hyperg_pval_df_plus_twos <- compute_hypergeometric_pval(ALL_plus_twos_annotated, gwas_catalog, bmap, ALL_disease_count_plus_twos) %>% mutate(level= "+2")
+```
+#plus threes pval
+```{r}
+ALL_hyperg_pval_df_plus_threes <- compute_hypergeometric_pval(ALL_plus_threes_annotated, gwas_catalog, bmap, ALL_disease_count_plus_threes) %>% mutate(level= "+3") 
+```
+#plus fours pval
+```{r}
+ALL_hyperg_pval_df_plus_fours <- compute_hypergeometric_pval(ALL_plus_fours_annotated, gwas_catalog, bmap, ALL_disease_count_plus_fours) %>% mutate(level= "+4") 
+```
+#FDR correction
+```{r}
+ALL_hyperg_pval_df_plus_ones_sig<- ALL_hyperg_pval_df_plus_ones %>% mutate(adj_pval = p.adjust(pvalue, method= "BH")) %>% filter(adj_pval <= 0.05)
+
+ALL_hyperg_pval_df_plus_twos_sig <- ALL_hyperg_pval_df_plus_twos %>% mutate(adj_pval = p.adjust(pvalue, method= "BH")) %>% filter(adj_pval <= 0.05)
+
+ALL_hyperg_pval_df_plus_threes_sig <- ALL_hyperg_pval_df_plus_threes %>% mutate(adj_pval = p.adjust(pvalue, method= "BH")) %>% filter(adj_pval <= 0.05)
+
+ALL_hyperg_pval_df_plus_fours_sig <- ALL_hyperg_pval_df_plus_fours %>% mutate(adj_pval = p.adjust(pvalue, method= "BH")) %>% filter(adj_pval <= 0.05)
+
+ALL_hyperg_pval_sig_combined <- ALL_hyperg_pval_df_plus_ones_sig %>% rbind(ALL_hyperg_pval_df_plus_twos_sig) %>% rbind(ALL_hyperg_pval_df_plus_threes_sig) %>% rbind(ALL_hyperg_pval_df_plus_fours_sig)
+
+```
+
+```{r}
+marker <- ALL_hyperg_pval_sig_combined$trait %>% unique()
+# make data square to calculate euclidean distance
+mat2 <- ALL_hyperg_pval_sig_combined %>% 
+  filter(trait %in% marker)  %>% 
+  dplyr::select(-pvalue, -n_eqtls_in_catalog, -adj_pval) %>%  # drop unused columns to faciliate widening
+  pivot_wider(names_from = level, values_from = n_eqtls) %>% 
+  data.frame() # make df as tibbles -> matrix annoying
+row.names(mat2) <- mat2$trait  # put gene in `row`
+mat2 <- mat2[,-1] #drop gene column as now in rows
+mat2[is.na(mat2)] <- 0 #populate NAS with 0s
+clust2 <- hclust(dist(mat2 %>% as.matrix())) 
+```
+
+```{r}
+FigureS4<- ALL_hyperg_pval_sig_combined %>% filter(trait %in% marker) %>% 
+  mutate(trait = factor(trait, levels = rev(marker))) %>% 
+  ggplot(aes(x=level, y = trait, color = -log(adj_pval, 10) , size = n_eqtls )) + 
+  geom_point() + scale_color_gradientn(colours = viridis::viridis(20), limits = c(1,10), oob = scales::squish, name = '-log(pvalue, 10)') +ylab("GWAS trait") +theme_minimal()
+
+```
+
+```{r}
+# pdf("./plots/FigureS4.pdf", width = 7.5, height = 9.5)
+# print(FigureS4)
+# dev.off()
+```
+
+
+```{r}
+ALL_plus_ones_traits_and_mech <- find_linking_mech(ALL_plus_ones_annotated,gwas_catalog, ALL_hyperg_pval_df_plus_ones_sig)
+ALL_plus_twos_traits_and_mech <- find_linking_mech(ALL_plus_twos_annotated,gwas_catalog, ALL_hyperg_pval_df_plus_twos_sig)
+ALL_plus_threes_traits_and_mech <- find_linking_mech(ALL_plus_threes_annotated,gwas_catalog, ALL_hyperg_pval_df_plus_threes_sig)
+ALL_plus_fours_traits_and_mech <- find_linking_mech(ALL_plus_fours_annotated,gwas_catalog, ALL_hyperg_pval_df_plus_fours_sig)
+```
+
+```{r}
+ALL_plus_ones_traits_and_mech %>% dplyr::filter(trait =="Disc degeneration (lumbar)") %>% distinct(gene)
+```
+```{r}
+gwas_catalog %>% dplyr::filter(DISEASE.TRAIT == "Disc degeneration (lumbar)") %>% distinct(MAPPED_GENE)
+```
+
