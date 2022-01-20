@@ -285,9 +285,9 @@ Figure2c<-ggplot(categories, aes(oe_lof_upper, color=Interaction_type)) +
 
 ```{r}
 #save as pdf
-pdf("./plots/Figure2c.pdf", height=4, width=7, paper = "USr")
-print(Figure2c)
-dev.off()
+# pdf("./plots/Figure2c.pdf", height=4, width=7, paper = "USr")
+# print(Figure2c)
+# dev.off()
 ```
 
 
