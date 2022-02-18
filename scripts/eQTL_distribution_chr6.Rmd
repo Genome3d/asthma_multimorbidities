@@ -1,27 +1,31 @@
 ---
 title: "eQTLs_across_chr6"
-author: "Roan Zaied"
+author: "Roan E. Zaied"
 date: "2/17/2021"
 output: html_document
 ---
 
+# This script was used to generate figure 3 and figure S2.
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_knit$set(root.dir = "/home/rstudio/")
-pdf.options(paper = "a4") #makes sure plots are saved in A4 paper 
+pdf.options(paper = "a4")
 ```
 
+# load required packages
 ```{r}
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(tidyverse,ggrepel,vroom,ggpubr,dplyr,reshape2)
 ```
 
-# using chr6_bmap_all, code to count number of cis, inter and intra interactions (for proportion of interactions by type)
+# read blood map data for chromosome 6 only
 ```{r}
 chr6_bmap_all <- vroom("./data/blood_grn_sig.txt.gz", delim="\t") %>% dplyr::filter(snp_chr=="chr6") %>% mutate("ensembl_gene_id"=str_extract(gencode_id, regex("(ENSG[0-9]{11})"))) %>% 
   mutate(eQTL_eGene=paste0(snp, "_", ensembl_gene_id))
 ```
 
+# count number of cis, trans inter and trans intra interactions per 1MB bin across chromosome 6
 ```{r}
 interaction_type_proportion<-c()
 
@@ -47,20 +51,20 @@ colnames(interaction_type_proportion) = c("bin", "Cis", "Trans_intra", "Trans_in
 interaction_type_proportion_molten<-melt(interaction_type_proportion, id.vars="bin" )
 ```
 
-#plot (Fig. 3a)
+# plot proportion of spatial eQTL-eGene interactions across chromosome 6 grouped by type
 ```{r}
 Figure3a<-ggplot(interaction_type_proportion_molten) +
   geom_bar(aes(x = bin/1000000, y = value, fill=variable), stat="identity", position="fill", color = "grey70", size=0.05) + theme_minimal() + scale_x_continuous(n.breaks=28, name="Chr6 (Mb)", limits=c(0, 171)) + scale_y_continuous(name="Proportion of interactions by type") + guides(fill=guide_legend("Interaction type")) +  scale_fill_manual(values=c('white', "gray25", "cyan4"))
 ```
 
-#save as pdf
+# save as pdf
 ```{r}
 # pdf("./plots/Figure3a.pdf", height=6, width=15, paper = "USr")
 # print(Figure3a)
 # dev.off()
 ```
 
-#functions to read desired chr data from GTEx and codes3D
+# functions to read chr data for specified chromosome from GTEx and tissue maps (adult brain and left ventricle)
 ```{r}
 gtex_snps<-vroom("./data/GTEx_Analysis_2017-06-05_v8_WholeGenomeSeq_838Indiv_Analysis_Freeze.lookup_table_shortened.txt.gz", delim="\t", col_select = c("rs_id_dbSNP151_GRCh38p7", "variant_pos", "chr"))
 
@@ -94,12 +98,11 @@ read_left_ventricle_data<-function(chr) {
 }
 ```
 
-#gene ref table from gtex specifying pos of genes
+# read gene ref table from gtex specifying position of genes
 ```{r}
-#gtex gtf table
-#Remove the Y chr since it has gene names same as those in X axis but they have different positions
+# remove the Y chr from table
 gene_ref<-read.table("./data/gencode.v26.GRCh38.genes.gtf.gz", sep="\t") %>% 
-   mutate(gene_id=str_extract(V9, regex("(ENSG[0-9]{11})"))) %>% #only use gencode number to increase match number between ref and gtex data
+   mutate(gene_id=str_extract(V9, regex("(ENSG[0-9]{11})"))) %>% #only use gencode number to increase match number between ref and GTEx data
   filter(V3=="gene") %>% 
   filter(!(V1=="chrY")) %>% 
   dplyr::select(V4, V5, V1) %>% 
@@ -110,13 +113,14 @@ gene_ref<-read.table("./data/gencode.v26.GRCh38.genes.gtf.gz", sep="\t") %>%
   distinct() #so that each gene is only counted once
 ```
 
-#plot gene density in whole blood 
+# only select data points from chromosome 6
 ```{r}
 gene_density_6<-gene_ref %>% 
   filter(chr=="chr6") %>% 
   dplyr::select(-chr)
 ```
-#Plot gene density across chr 6 (Fig. 3b)
+
+# plot gene density across chr 6 (Fig. 3b)
 ```{r}
 Figure3b<-ggplot(gene_density_6, aes(locus/1000000, colour = group)) +
   geom_freqpoly(binwidth = 1) + theme_minimal() + labs(x="Chr6 (Mb)", y="number of genes") +  theme(axis.text.y = element_text(size=12)) + guides(color=guide_legend("Key")) +scale_y_continuous(labels = scales::scientific) +  scale_x_continuous(n.breaks=28, limits=c(0,171)) + theme(legend.position = "none")
@@ -129,7 +133,7 @@ Figure3b<-ggplot(gene_density_6, aes(locus/1000000, colour = group)) +
 # dev.off()
 ```
 
-#Chr6 read data across all tissues
+# read data across all tissues for chromosome 6
 ```{r}
 gtex_chr6_snps<- read_gtex_data("chr6") 
 bmap_chr6<-read_blood_data("chr6")
@@ -140,7 +144,7 @@ gene_density_6<-gene_ref %>%
   dplyr::select(-chr)
 ```
 
-#CHR19 read data across all 3 tissues
+# read data across all 3 tissues for chr19
 ```{r}
 gtex_chr19_snps<- read_gtex_data("chr19") 
 bmap_chr19<-read_blood_data("chr19")
@@ -152,7 +156,7 @@ gene_density_19<-gene_ref %>%
 
 ```
 
-#CHR7 read data across all 3 tissues
+# read data across all 3 tissues for chr7
 ```{r}
 gtex_chr7_snps<- read_gtex_data("chr7")
 bmap_chr7<-read_blood_data("chr7")
@@ -164,7 +168,7 @@ gene_density_7<-gene_ref %>%
 
 ```
 
-#CHR18 read data across all 3 tissues
+# read data across all 3 tissues for chr18
 ```{r}
 gtex_chr18_snps<- read_gtex_data("chr18")
 bmap_chr18<-read_blood_data("chr18")
@@ -175,7 +179,7 @@ gene_density_18<-gene_ref %>%
   dplyr::select(-chr)
 ```
 
-#function to bin chromosome into 1Mb bins, count number of tissue_map eQTLs 
+# function to bin chromosome into 1Mb bins and compute ratio of blood map eQTL-eGene interaction to SNPs 
 ```{r}
 compute_count_and_ratio<-function(chr_tissue_map, gtex_chr_dt) {
 tissue_map_count_combined<-c()
@@ -204,8 +208,7 @@ return(tissue_map_count_combined)
 }
 ```
 
-#MANUAL BINNING AND COMPUTE RATIO
-#CHR6
+# find ratio of blood GRN eQTL-eGene interaction to SNPs for chromosome 6 in all 3 tissue maps
 ```{r}
 bmap_count_combined_chr6<-compute_count_and_ratio(bmap_chr6, gtex_chr6_snps) %>% 
   mutate(group="whole blood")
@@ -220,7 +223,8 @@ combined_ratio_chr6<-rbind(left_ventricle_count_combined_chr6, bmap_count_combin
   rbind(adult_brain_count_combined_chr6) %>% replace(is.na(.), 0) 
 
 ```
-#plot Ratio of number sig. eQTLs-egene pairs and SNPs (whole blood) across different tissues in chr6
+
+# plot Ratio of number sig. eQTLs-egene pairs and SNPs (whole blood) across different tissues in chr6
 ```{r}
 Figure3c<-ggplot(combined_ratio_chr6, aes(x=bin/1000000, y=`eQTLs_eGene/snps_ratio`, color=group)) +
   geom_line(binwidth = 1) + theme_minimal() + labs(x="Chr6 (Mb)", y="ratio (eQTL-eGene interactions/SNPs)") + guides(color=guide_legend("Tissue")) + theme(axis.text.y = element_text(size=10), legend.text=element_text(size=10)) + scale_color_manual(values=c("#7CAE00", "#00BFC4", "#f8766D")) + scale_x_continuous(n.breaks=28, limits=c(0,171)) 
@@ -233,7 +237,7 @@ Figure3c<-ggplot(combined_ratio_chr6, aes(x=bin/1000000, y=`eQTLs_eGene/snps_rat
 # dev.off()
 ```
 
-#plot
+# plot Ratio of number sig. eQTLs-egene pairs and SNPs (whole blood) across different tissues in chr6 (HLA region only)
 ```{r}
 Figure3d<-ggplot(combined_ratio_chr6, aes(x=bin/1000000, y=`eQTLs_eGene/snps_ratio`, color=group)) +
   geom_line(binwidth = 1) + theme_classic() + labs(x="Chr6 (Mb)", y="ratio (eQTL-eGene interactions/SNPs)") + guides(color=guide_legend("Tissue")) +  scale_x_continuous(limits=c(25,34), n.breaks=19) +scale_color_manual(values=c("#7CAE00", "#00BFC4", "#f8766D")) + theme(axis.text.x= element_text(size=10))
@@ -247,7 +251,7 @@ Figure3d<-ggplot(combined_ratio_chr6, aes(x=bin/1000000, y=`eQTLs_eGene/snps_rat
 ```
 
 
-#CHR7 (Fig. S2a)
+# find ratio of blood GRN eQTL-eGene interaction to SNPs for chromosome 7 in all 3 tissue maps and plot (Fig. S2a)
 ```{r}
 bmap_count_combined_chr7 <-compute_count_and_ratio(bmap_chr7, gtex_chr7_snps) %>% 
   mutate(group="whole blood")
@@ -276,7 +280,7 @@ geom_line() +
 ```
 
 
-#CHR18 (Fig. S2b)
+# find ratio of blood GRN eQTL-eGene interaction to SNPs for chromosome 18 in all 3 tissue maps and plot (Fig. S2b)
 ```{r}
 bmap_count_combined_chr18<-compute_count_and_ratio(bmap_chr18, gtex_chr18_snps) %>% 
   mutate(group="whole blood")
@@ -303,7 +307,7 @@ geom_line() +
 # dev.off()
 ```
 
-#CHR19 (Fig. S2c)
+#find ratio of blood GRN eQTL-eGene interaction to SNPs for chromosome 19 in all 3 tissue maps and plot (Fig. S2c)
 ```{r}
 bmap_count_combined_chr19 <-compute_count_and_ratio(bmap_chr19, gtex_chr19_snps) %>% 
   mutate(group="whole blood")

@@ -1,43 +1,47 @@
 ---
 title: "bmap_description"
-author: "Roan"
+author: "Roan E. Zaied"
 date: "3/9/2021"
 output: html_document
 ---
+
+# This script was used to generate figure S1c, S1d, and S1e.
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_knit$set(root.dir = "/home/rstudio/")
 pdf.options(paper = "a4")
 ```
-
+# load required packages
 ```{r}
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(tidyverse,vroom,gprofiler2,ggpubr,Hmisc)
 ```
 
+# read expression levels of genes in whole blood (from GTEx v8)
 ```{r}
 tpm_0.1<-vroom("./data/GTEx_Analysis_2017-06-05_v8_RNASeQCv1.1.9_gene_median_tpm.gct", delim = "\t", skip=2, col_select = c("Description", "Whole Blood", "Name")) %>% dplyr::rename("gencode_id" = Name, "gene" = Description) %>% filter(`Whole Blood`> 0.1) %>% distinct()
 
 tpm_0.1 <- tpm_0.1 %>% mutate(ensembl_gene_id=str_extract(tpm_0.1$gencode_id, regex("(ENSG[0-9]{11})")))
 ```
 
+# read blood map
 ```{r}
 bmap<-vroom("./data/blood_grn_sig.txt.gz", delim="\t", col_select = c(gene, gencode_id, expression)) %>% distinct() 
 ```
 
-#find bmap genes that are expressed in blood >0.1 (these are the ones shared with tpm 0.1)
+# find blood map genes (eGenes) and non blood map genes (non-eGenes) that are expressed in blood >0.1
 ```{r}
 expressed_bmap_genes <- bmap %>% filter(expression > 0.1) %>% mutate(Key= "eGenes (13,674)") %>% dplyr::select(Key, gencode_id) %>% distinct() %>% mutate(ensembl_gene_id=str_extract(gencode_id, regex("(ENSG[0-9]{11})")))
 
-#5415 genes are expressed >0.1 but not spatially regulated.
+#5415 genes are expressed >0.1 but are not spatially regulated.
 expressed_non_bmap_genes <- tpm_0.1 %>% filter( !(tpm_0.1$gencode_id %in% bmap$gencode_id))  %>% mutate(Key = "non-eGenes (5,415)") %>% dplyr::select(Key, gencode_id) %>% mutate(ensembl_gene_id=str_extract(gencode_id, regex("(ENSG[0-9]{11})")))
 
 #these now represent all genes expreesed in blood >0.1 
 combined_egenes_non_egenes <- rbind (expressed_non_bmap_genes, expressed_bmap_genes)
 ```
 
-#Find out biotype of each of the bmap and non bmap genes
+# read in biotype table for all genes from gencode
 ```{r}
 biotype_gencode_table <- vroom("./data/gencode.v26.annotation.gtf.gz", delim='\t', skip=5, col_names = F) %>% filter(X3=="gene" | X3=="transcript") %>% as.data.frame()
 
@@ -54,66 +58,53 @@ biotype_gencode_table <- biotype_gencode_table %>%
   dplyr::select(biotype, gencode_id, ensembl_gene_id)
 ```
 
-#find biotype of non bmap genes; (all of them had biotypes) and biotypes of non bmap genes
+# find biotype of blood map genes and non blood map genes
 ```{r}
 expressed_non_bmap_genes <- inner_join(expressed_non_bmap_genes, biotype_gencode_table, by="ensembl_gene_id") %>% distinct()
 
 expressed_bmap_genes <- inner_join(expressed_bmap_genes, biotype_gencode_table, by="ensembl_gene_id") %>% distinct() 
 ```
   
-#re-label biotypes to shorten list
+# re-label biotypes to shorten list
 ```{r}
 annotated_all_blood <- rbind(expressed_bmap_genes, expressed_non_bmap_genes) %>% dplyr::count(Key, biotype) %>% arrange(desc(n))
 
-#find all terms with pseudogene in non-egenes
+# find all biotypes containing the term "pseudogene" in non-egenes
 non_egenes_psudogenes <- annotated_all_blood[grep("pseudogene", annotated_all_blood$biotype),] %>% filter(Key == "non-eGenes (5,415)" ) 
-#find all terms with pseudogene in egenes
+#find all biotypes containing the term "pseudogene" in egenes
 egenes_psudogenes <- annotated_all_blood[grep("pseudogene", annotated_all_blood$biotype),] %>% filter(Key == "eGenes (13,674)") 
 
-#replace different types of pseudogenes with the term "pseudogene"
+# replace those with the simple term "pseudogene"
 annotated_all_blood <- annotated_all_blood %>%  filter( !(annotated_all_blood$biotype %in% egenes_psudogenes$biotype | annotated_all_blood$biotype %in% non_egenes_psudogenes$biotype )) %>% rbind(data.frame("biotype" = "pseudogene", "Key"= "non-eGenes (5,415)", "n"= sum(non_egenes_psudogenes$n))) %>% rbind(data.frame("biotype" = "pseudogene", "Key"= "eGenes (13,674)", "n"= sum(egenes_psudogenes$n))) 
 
-#find all Ig and TcR genes in non-egenes
+# find all Ig and TcR genes in non-egenes
 non_egenes_ig_tcr <- annotated_all_blood[grep("_gene", annotated_all_blood$biotype),] %>% filter(Key == "non-eGenes (5,415)" ) 
 
-#find all Ig and TcR genes in egenes
+# find all Ig and TcR genes in egenes
 egenes_ig_tcr  <- annotated_all_blood[grep("_gene", annotated_all_blood$biotype),] %>% filter(Key == "eGenes (13,674)" ) 
 
-#replace different types of TcR genes with term "Ig variable chain and TcR genes"
+# replace biotype with term "Ig variable chain and TcR genes"
 annotated_all_blood <- annotated_all_blood %>%  filter( !(annotated_all_blood$biotype %in% egenes_ig_tcr$biotype | annotated_all_blood$biotype %in% non_egenes_ig_tcr$biotype )) %>% rbind(data.frame("biotype" = "Ig variable chain and TcR genes", "Key"= "non-eGenes (5,415)", "n"= sum(non_egenes_ig_tcr$n))) %>% rbind(data.frame("biotype" = "Ig variable chain and TcR genes", "Key"= "eGenes (13,674)", "n"= sum(egenes_ig_tcr$n))) 
 
-#find all Non coding RNA genes in non-egenes 
+# find all Non coding RNA genes in non-egenes 
 non_egenes_ncrna <- annotated_all_blood[grep('snoRNA|ribozyme|sRNA|Mt_rRNA|Mt_tRNA|rRNA|scaRNA|scRNA|miRNA|misc_RNA|snRNA', annotated_all_blood$biotype),] %>% filter(Key == "non-eGenes (5,415)" ) 
-#find all Non coding RNA genes in egenes 
+# find all Non coding RNA genes in egenes 
 egenes_ncrna  <- annotated_all_blood[grep('snoRNA|ribozyme|rRNA|scaRNA|sRNA|Mt_rRNA|Mt_tRNA|scRNA|miRNA|misc_RNA|snRNA', annotated_all_blood$biotype),] %>% filter(Key == "eGenes (13,674)" ) 
 
-#replace different types of non coding RNA genes with term "non-coding RNA"
+# replace different types of non coding RNA genes with term "non-coding RNA"
 annotated_all_blood <- annotated_all_blood %>%  filter( !(annotated_all_blood$biotype %in% egenes_ncrna$biotype | annotated_all_blood$biotype %in% non_egenes_ncrna$biotype )) %>% rbind(data.frame("biotype" = "non coding RNA", "Key"= "non-eGenes (5,415)", "n"= sum(non_egenes_ncrna$n))) %>% rbind(data.frame("biotype" = "non coding RNA", "Key"= "eGenes (13,674)", "n"= sum(egenes_ncrna$n))) 
 
-#other non-egenes
+# find misc. biotypes in non-egenes
 non_egenes_other <- annotated_all_blood[grep('non_coding|3prime_overlapping_ncRNA|sense_overlapping|bidirectional_promoter_lncRNA', annotated_all_blood$biotype),] %>% filter(Key == "non-eGenes (5,415)" ) 
-#other egenes
+# find misc. biotypes in other egenes
 egenes_other  <- annotated_all_blood[grep('non_coding|3prime_overlapping_ncRNA|sense_overlapping|bidirectional_promoter_lncRNA', annotated_all_blood$biotype),] %>% filter(Key == "eGenes (13,674)" ) 
 
-#replace the remaining misc biotypes with term "other"
+# replace the remaining misc. biotypes with term "other"
 annotated_all_blood <- annotated_all_blood %>%  filter( !(annotated_all_blood$biotype %in% egenes_other$biotype | annotated_all_blood$biotype %in% non_egenes_other$biotype )) %>% rbind(data.frame("biotype" = "other", "Key"= "non-eGenes (5,415)", "n"= sum(non_egenes_other$n))) %>% rbind(data.frame("biotype" = "other", "Key"= "eGenes (13,674)", "n"= sum(egenes_other$n))) 
 ```
 
-#Plot
+# plot biotype as proportion cpmparing eGenes and non-eGenes
 ```{r}
-ggplot(data= annotated_all_blood, aes(x= reorder(biotype, desc(n))
-, y= n, fill=
-Key)) +  geom_bar(position = 'dodge', stat='identity') +
-  geom_text(aes(label=n), position=position_dodge(width=0.9), vjust=-0.25, size=3) + ggtitle("genes expressed in blood >0.1 tpm") +
-  theme_classic() + ylab("number of genes") + xlab("bio-type") +
-  theme(plot.title = element_text(face="bold",size=9, hjust = 0.5)) + theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-  scale_fill_manual(values=c('darkcyan','gray60')) + scale_y_continuous(labels = scales::scientific) #+ scale_fill_discrete(name="Key", labels = c("eGenes (13,674)", "non-eGenes (5,415)"))
-```
-
-
-#plot as proportion
-```{r}
-#must put x and y in ggplot to prevent "xyz" requires both x and y aestitic error
 FigureS1c <- ggplot(annotated_all_blood, aes(x = biotype, y = n, fill=Key)) +
   geom_bar( stat="identity", position="fill", color = "black") + theme_classic() + theme(axis.text.x = element_text(angle = 45, hjust = 1)) + scale_x_discrete(limits=c("protein_coding","pseudogene", "antisense", "Ig variable chain and TcR genes" ,"lincRNA" , "non coding RNA" ,"processed_transcript",  "sense_intronic" ,"TEC", "other" ))  +  scale_y_continuous(labels = scales::percent) + ylab("% genes expressed in blood") + 
   geom_text(aes(label = n), position = "fill", vjust = 1.5, size=3.5) + scale_fill_manual(values=c( '#de7a52', "#f7f7f7"))
@@ -125,7 +116,7 @@ FigureS1c <- ggplot(annotated_all_blood, aes(x = biotype, y = n, fill=Key)) +
 # dev.off()
 ```
 
-#annotate expression level for each gene 
+# annotate expression level for each gene 
 ```{r}
 non_egenes_ann_tpm<-merge(expressed_non_bmap_genes, tpm_0.1, by= "ensembl_gene_id") %>% filter(biotype=="protein_coding") %>%  dplyr::select(Key, `Whole Blood`) %>% mutate(Key="protein coding non-eGenes")
 
@@ -133,16 +124,16 @@ egenes_ann_tpm<-merge(expressed_bmap_genes, tpm_0.1, by= "ensembl_gene_id") %>% 
 
 egenes_non_egenes_ann_tpm_combined <- rbind(egenes_ann_tpm, non_egenes_ann_tpm)
 ```
-#do stat analysis 
+# compute mean expression levels
 ```{r}
 egenes_non_egenes_ann_tpm_combined %>% group_by(Key) %>% dplyr::summarise(mean=mean(`Whole Blood`))
 ```
-
+# compute SD of expression levels
 ```{r}
 egenes_non_egenes_ann_tpm_combined %>% group_by(Key) %>% dplyr::summarise(sd=sd(`Whole Blood`))
 ```
 
-#Violin plot comparing protein coding egenes vs protein coding non-egenes
+# violin plot comparing expression levels of protein coding egenes vs protein coding non-egenes
 ```{r}
 FigureS1d<-ggplot(egenes_non_egenes_ann_tpm_combined, aes(x=Key, y=log10(`Whole Blood` +1), fill=Key)) + 
     geom_violin(trim=T)  + theme_minimal() + 
@@ -161,12 +152,12 @@ FigureS1d<-ggplot(egenes_non_egenes_ann_tpm_combined, aes(x=Key, y=log10(`Whole 
 # dev.off()
 ```
 
-#LOEUF SCORE
+# read in constraint table from gnomad and extract loeuf score per gene
 ```{r}
-constraint_table<-vroom("./data/gnomad.v2.1.1.lof_metrics.by_gene.txt", delim = "\t", , col_select = c("gene_id", "oe_lof_upper")) %>% dplyr::rename("ensembl_gene_id"=gene_id)
+constraint_table<-vroom("./data/gnomad.v2.1.1.lof_metrics.by_gene.txt", delim = "\t", col_select = c("gene_id", "oe_lof_upper")) %>% dplyr::rename("ensembl_gene_id"=gene_id)
 ```
 
-#annotate loeuf for both egenes and non-egeens
+# annotate loeuf score per gene for egenes and non-egenes
 ```{r}
 non_egenes_ann_loeuf<-merge(expressed_non_bmap_genes, constraint_table, by= "ensembl_gene_id") %>% filter(biotype=="protein_coding") %>%  dplyr::select(Key, "oe_lof_upper") %>% mutate(Key="protein coding non-eGenes")
 
@@ -175,16 +166,17 @@ egenes_ann_loeuf<-merge(expressed_bmap_genes, constraint_table, by= "ensembl_gen
 egenes_non_egenes_ann_loeuf_combined <- rbind(non_egenes_ann_loeuf, egenes_ann_loeuf)
 ```
   
-#stat analysis
+# compute mean of expression levels (eGenes and non eGenes)
 ```{r}
 egenes_non_egenes_ann_loeuf_combined %>% dplyr::filter(!is.na(oe_lof_upper)) %>% group_by(Key) %>% dplyr::summarise(mean=mean(oe_lof_upper))
 ```
 
+# compute SD of expression levels (eGenes and non eGenes)
 ```{r}
 egenes_non_egenes_ann_loeuf_combined %>% dplyr::filter(!is.na(oe_lof_upper)) %>% group_by(Key) %>% dplyr::summarise(sd=sd(oe_lof_upper))
 ```
 
-#plot distribution
+# plot tolerance to loss of function of protein coding eGenes vs. non-eGenes expressed in whole blood distribution
 ```{r}
 FigureS1e<-ggplot(egenes_non_egenes_ann_loeuf_combined, aes(x=Key, y=oe_lof_upper, fill=Key)) + 
     geom_violin(trim=T)  + theme_minimal() + 
@@ -192,9 +184,9 @@ FigureS1e<-ggplot(egenes_non_egenes_ann_loeuf_combined, aes(x=Key, y=oe_lof_uppe
                  geom="pointrange", color="brown", shape=3, size=0.85)   + 
   labs(title="black=median, read=mean, brown line=sd", y = "LOEUF") +
   scale_fill_brewer(palette="RdBu") + stat_summary(fun.y = "median", geom = "point", shape = 3, size = 3, color = "black") + theme(legend.position = "none") + theme(axis.text.x= element_text(size=9)) +
-   stat_compare_means( method = "t.test", label = "p.signif", label.x = 1.5, label.y = 2.1) 
-
+   stat_compare_means( method = "t.test", label = "p.signif", label.x = 1.5, label.y = 2.1)
 ```
+
 #Save plot
 ```{r}
 #save as pdf
