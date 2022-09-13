@@ -1,0 +1,467 @@
+---
+title: "multimorbid3D_visualization"
+author: "Roan Zaied"
+date: "6/16/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir = "/home/rstudio/")
+```
+
+#load required packages
+```{r}
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(tidyverse,stringr,pheatmap,gplots,gdata,reshape2
+,dplyr,plyr,RColorBrewer,vroom,biomaRt,tidyverse,gprofiler2)
+
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(tidyverse)
+```
+
+```{r function to save plot}
+save_plot <- function(plot, path, width, height) {
+  pdf(path, width, height)
+print(plot)
+dev.off()
+}
+```
+
+```{r fxn that reads genes data & keeps bootstrapped result}
+
+parse_genes_table <- function(grn, lvl, ppin, tissue_type) {
+  
+  file_path <- paste0("./asthma_multimorbidities/results/multimorbid3D_run/", grn)
+  
+    sig_interactions <- paste0(file_path, "/" ,lvl, "_sig_interactions.txt") %>%  vroom(., delim="\t")
+    
+    bootstrapped_results <- paste0(file_path, "/" ,"significant_enrichment_bootstrap.txt")  %>% vroom(., delim="\t") %>% dplyr::filter(level == lvl, sim_pval < 0.05)
+
+  bootstrapped_genes_results <- sig_interactions %>% dplyr::filter( trait %in% bootstrapped_results$trait) %>% dplyr::mutate(level= lvl) %>% dplyr::mutate(tissue= tissue_type) %>%  dplyr::mutate(ppin_db= ppin)
+  
+  return(bootstrapped_genes_results)
+}
+```
+
+```{r function that plots heatmap }
+
+plot_heatmap <- function (bootstrapped_interactions, min_n_eqtls, dendogram_row, dendogram_col, fontsizerow, fontsizecol,clust_rows, clust_col) {
+  sig_interactions_matrix <- bootstrapped_interactions %>% dplyr::select(-eqtl_type, trait, gene, snp) %>%  dplyr::count(trait, gene) %>%
+    dplyr::filter(n >= min_n_eqtls) %>% 
+    pivot_wider(names_from = "gene", values_from = "n") %>% column_to_rownames("trait") %>% replace(is.na(.), 0) 
+  
+  heatmap <-pheatmap(sig_interactions_matrix,
+                #   cellwidth = 3, 
+                 #   border_color= "#dedcdc",
+                treeheight_row = dendogram_row,
+                treeheight_col = dendogram_col,
+                   fontsize_row=fontsizerow, 
+                   fontsize_col=fontsizecol,
+               # border_color = NA,
+               cluster_rows=clust_rows, 
+               cluster_cols=clust_col,
+                col=colorRampPalette(c("#f0f0f0","#440154FF", "#481567FF", "#482677FF", "#453781FF", "#404788FF" ,"#39568CFF" ,"#33638DFF", "#2D708EFF" ,"#287D8EFF" ,"#238A8DFF" ,"#1F968BFF" ,"#20A387FF", "#29AF7FFF" ,"#3CBB75FF" ,"#55C667FF" ,"#73D055FF", "#95D840FF", "#B8DE29FF","#DCE319FF","#FDE725FF"))(100))
+  return(heatmap)
+  
+}
+```
+
+
+```{r asthma associated SNPs in the lung and Blood GRNs prior to statistical testing}
+#155 asthma-associated eQTLs targeting 112 eGenes (219 interactions)
+vroom("./asthma_multimorbidities/results/multimorbid3D_run/lmap/query_eqtls.txt", delim="\t") %>% dplyr::select(snp) %>% distinct() %>% nrow()
+
+vroom("./asthma_multimorbidities/results/multimorbid3D_run/lmap/query_eqtls.txt", delim="\t") %>% dplyr::select(gene) %>% distinct() %>% nrow()
+
+#246 asthma-associated eQTLs targeting 229 genes
+vroom("./asthma_multimorbidities/results/multimorbid3D_run/bmap/query_eqtls.txt", delim="\t") %>% dplyr::select(snp) %>% distinct() %>% nrow()
+
+vroom("./asthma_multimorbidities/results/multimorbid3D_run/bmap/query_eqtls.txt", delim="\t") %>% dplyr::select(gene) %>% distinct() %>% nrow()
+```
+
+```{r read & parse lung and blood results after running multimorbid3D}
+# blood_bootstrapped_interactions <-
+#   #level 0 corresponds to all genes regulated by asthma-associated eQTLs regardelss of whether they are protein coding or not thus for ppin_db use "NA"
+#   parse_genes_table("bmap", "level0", "NA", "blood") %>%
+#   rbind(parse_genes_table("bmap", "level1", "STRING", "blood")) %>%
+#   rbind(parse_genes_table("bmap", "level2", "STRING", "blood")) %>%
+#   rbind(parse_genes_table("bmap", "level3", "STRING", "blood")) %>%
+#   rbind(parse_genes_table("bmap", "level4", "STRING", "blood")) %>%
+#   rbind(parse_genes_table("bmap_proper", "level1", "PROPER", "blood")) %>%
+#   rbind(parse_genes_table("bmap_proper", "level2", "PROPER", "blood")) %>%
+#   rbind(parse_genes_table("bmap_proper", "level3", "PROPER", "blood")) %>%
+#   rbind(parse_genes_table("bmap_proper", "level4", "PROPER", "blood")) 
+
+# lung_bootstrapped_interactions <-
+#   parse_genes_table("lmap", "level0", "NA", "lung") %>%
+#   rbind(parse_genes_table("lmap", "level1", "STRING", "lung")) %>%
+#   rbind(parse_genes_table("lmap", "level2", "STRING", "lung")) %>%
+#   rbind(parse_genes_table("lmap", "level3", "STRING", "lung")) %>%
+#   rbind(parse_genes_table("lmap", "level4", "STRING", "lung")) %>%
+#   rbind(parse_genes_table("lmap_proper", "level1", "PROPER", "lung")) %>%
+#   rbind(parse_genes_table("lmap_proper", "level2", "PROPER", "lung")) %>%
+#   rbind(parse_genes_table("lmap_proper", "level3", "PROPER", "lung")) %>%
+#   rbind(parse_genes_table("lmap_proper", "level4", "PROPER", "lung"))
+# 
+# asthma_bootstrapped_interactions <- rbind(blood_bootstrapped_interactions, lung_bootstrapped_interactions)
+
+#write.table(asthma_bootstrapped_interactions, "./asthma_multimorbidities/results/asthma_bootstrapped_interactions.txt", sep="\t", quote= F, col.names=T , row.names = F)
+```
+
+```{r}
+asthma_bootstrapped_interactions <- vroom("./asthma_multimorbidities/results/asthma_bootstrapped_interactions.txt", delim="\t")
+
+#asthma GRN in lung
+#112 genes
+asthma_bootstrapped_interactions %>% dplyr::filter(level=="level0" & tissue=="lung") %>% dplyr::select(gene) %>% distinct() %>% nrow()
+#155 asthma snps
+x <- asthma_bootstrapped_interactions %>% dplyr::filter(level=="level0" & tissue=="lung" & trait=="Asthma") %>% dplyr::select(snp) %>% distinct()
+#635 level0 snps
+y <- asthma_bootstrapped_interactions %>% dplyr::filter(level=="level0" & tissue=="lung") %>% dplyr::select(snp) %>% distinct()
+#480 eQTLs not associated with asthma level0
+setdiff(y,x) 
+
+asthma_bootstrapped_interactions %>% dplyr::filter(level=="level0", tissue=="lung") %>% dplyr::select(trait) %>% distinct()
+
+#188 eGenes
+asthma_bootstrapped_interactions %>% dplyr::filter(level=="level0" & tissue=="blood") %>% dplyr::select(gene) %>% distinct()
+
+#827 snps
+asthma_bootstrapped_interactions %>% dplyr::filter(level=="level0" & tissue=="blood") %>% dplyr::select(snp) %>% distinct()
+
+#70 traits
+asthma_bootstrapped_interactions %>% dplyr::filter(level=="level0", tissue=="blood") %>% dplyr::select(trait) %>% distinct()
+#lung: level1: 6 eGenes, 15 eQTLs, 3 traits 
+#lung: level2: 9 eGenes, 24 eQTLs, 4 traits 
+#lung: level3 string: 7 eGenes, 13 eQTLs, 1 traits 
+#lung: level3 proper: 13 eGenes, 38 eQTLs, 1 traits
+#lung: level4 string: 3 eGenes, 6 eQTLs, 2 traits 
+#blood: level1: 35 eGenes, 52 eQTLs, 4 traits 
+#blood: level2: 156 eGenes, 184 eQTLs, 4 traits 
+#blood: level3 1 eGenes, 14 eQTLs, 1 traits
+#blood: level4 string: 146 eGenes, 276 eQTLs, 4 traits
+```
+
+
+#plot dotplots
+```{r}
+lmap_string<- vroom("./asthma_multimorbidities/results/multimorbid3D_run/lmap/significant_enrichment_bootstrap.txt", delim="\t") %>% dplyr::filter(sim_pval < 0.05)
+
+lmap_proper <- vroom("./asthma_multimorbidities/results/multimorbid3D_run/lmap_proper/significant_enrichment_bootstrap.txt", delim="\t") %>% dplyr::filter(sim_pval < 0.05) 
+
+lmap_diffusion <- lmap_string %>% rbind(lmap_proper) %>% mutate_at(vars(adj_pval), funs(-log(.,10))) %>% mutate_at(vars(adj_pval), funs(round(., 10))) %>% distinct() %>% dplyr::rename("log(adj_pval,10)" = "adj_pval")
+```
+
+```{r}
+lmap_diffusion_marker <- lmap_diffusion$trait %>% unique()
+
+lmap_diffusion_plot<- lmap_diffusion %>% filter(trait %in% lmap_diffusion_marker) %>% 
+  mutate(trait = factor(trait, levels = rev(lmap_diffusion_marker))) %>% 
+  ggplot(aes(x=level, y = trait, color = `log(adj_pval,10)` , size = trait_eqtls)) + 
+  geom_point() + scale_color_gradientn(colours = viridis::viridis(20), limits = c(1,10), 
+                                       oob = scales::squish, name = '-log(adj_pval, 10)') +ylab("GWAS trait") +theme_minimal()
+```
+
+```{r}
+save_plot(lmap_diffusion_plot,"./asthma_multimorbidities/plots/asthma_lmap_diffusion.pdf", 8, 11.5)
+```
+
+```{r}
+bmap_string<- vroom("./asthma_multimorbidities/results/multimorbid3D_run/bmap/significant_enrichment_bootstrap.txt", delim="\t") %>% dplyr::filter(sim_pval < 0.05) 
+
+bmap_proper <- vroom("./asthma_multimorbidities/results/multimorbid3D_run/bmap_proper/significant_enrichment_bootstrap.txt",  delim="\t") %>% dplyr::filter(sim_pval < 0.05) 
+
+bmap_diffusion <- bmap_string %>% rbind(bmap_proper) %>% mutate_at(vars(adj_pval), funs(-log(.,10))) %>% mutate_at(vars(adj_pval), funs(round(., 10))) %>% distinct()  %>% dplyr::rename("log(adj_pval,10)" = "adj_pval")
+```
+
+```{r}
+bmap_diffusion_marker <- bmap_diffusion$trait %>% unique()
+
+bmap_diffusion_plot<- bmap_diffusion %>% filter(trait %in% bmap_diffusion_marker) %>% 
+  mutate(trait = factor(trait, levels = rev(bmap_diffusion_marker))) %>% 
+  ggplot(aes(x=level, y = trait, color = `log(adj_pval,10)` , size = trait_eqtls)) + 
+  geom_point() + scale_color_gradientn(colours = viridis::viridis(20), limits = c(1,10), 
+                                       oob = scales::squish, name = '-log(adj_pval, 10)') +ylab("GWAS trait") +theme_minimal()
+```
+
+```{r}
+save_plot(bmap_diffusion_plot,"./asthma_multimorbidities/plots/asthma_bmap_diffusion.pdf", 8.5, 11.5)
+```
+
+#find traits unique to string and proper
+```{r}
+#Lung GRN
+setdiff(asthma_bootstrapped_interactions %>% dplyr::filter( tissue=="lung" & ppin_db=="STRING") %>% dplyr::select(trait) %>% distinct(), asthma_bootstrapped_interactions %>% dplyr::filter( tissue=="lung" & ppin_db=="PROPER") %>% dplyr::select(trait) %>% distinct())
+
+setdiff(asthma_bootstrapped_interactions %>% dplyr::filter(tissue=="lung" & ppin_db=="PROPER") %>% dplyr::select(trait) %>% distinct(), asthma_bootstrapped_interactions %>% dplyr::filter( tissue=="lung" & ppin_db=="STRING") %>% dplyr::select(trait) %>% distinct())
+
+#Blood GRN
+setdiff(asthma_bootstrapped_interactions %>% dplyr::filter( tissue=="blood" & ppin_db=="STRING") %>% dplyr::select(trait) %>% distinct(), asthma_bootstrapped_interactions %>% dplyr::filter( tissue=="blood" & ppin_db=="PROPER") %>% dplyr::select(trait) %>% distinct())
+
+setdiff(asthma_bootstrapped_interactions %>% dplyr::filter( tissue=="blood" & ppin_db=="PROPER") %>% dplyr::select(trait) %>% distinct(), asthma_bootstrapped_interactions %>% dplyr::filter( tissue=="blood" & ppin_db=="STRING") %>% dplyr::select(trait) %>% distinct())
+```
+
+#HEATMAP
+#Lung GRN
+```{r}
+asthma_bootstrapped_interactions <- vroom("./asthma_multimorbidities/results/asthma_bootstrapped_interactions.txt", delim="\t")
+
+asthma_bootstrapped_interactions %>% dplyr::filter(level=="level0",tissue=="lung", is.na(ppin_db)) %>% plot_heatmap(., 2, 30,30, 8,7,T,T)  %>% save_plot(., "./asthma_multimorbidities/plots/lmap_lvl0_heatmap_eqtls>2.pdf", 12, 10)
+
+#combine L1 L2 L3 L4
+lmap_lvl1234_string<- asthma_bootstrapped_interactions %>% dplyr::filter(level=="level1",tissue=="lung", ppin_db=="STRING") %>% 
+rbind(asthma_bootstrapped_interactions %>% dplyr::filter(level=="level2",tissue=="lung", ppin_db=="STRING")) %>% 
+rbind(asthma_bootstrapped_interactions %>% dplyr::filter(level=="level3",tissue=="lung", ppin_db=="STRING")) %>% rbind(asthma_bootstrapped_interactions %>% dplyr::filter(level=="level4",tissue=="lung", ppin_db=="STRING"))   %>% mutate(trait=as.factor(trait)) %>% mutate(level=as.factor(level))# %>%          dplyr::select(-eqtl_type, -tissue, -ppin_db)
+ 
+#reorder from level1 to 4
+lmap_lvl1234_string$trait <-
+  factor(
+    lmap_lvl1234_string$trait,
+    levels = c(
+      "Response to hepatitis B vaccine",
+      "Protein C levels",
+      "EGFR mutation-positive lung adenocarcinoma",
+      "Depressive symptoms",
+      "Venous thromboembolism",
+      "Intracranial volume",
+      "Cortical surface area (global PC1)",
+      "White matter microstructure (mean diusivities)",
+      "Urinary metabolite levels in chronic kidney disease",
+      "Amyloid A serum levels",
+      "Urinary metabolite ratios in chronic kidney disease"
+    )
+  )
+#level function != factor function
+#levels(lmap_lvl1234_string$trait) <- c("","")
+
+lmap_lvl1234_string %>% plot_heatmap(., 0, FALSE, FALSE, 8,7,F,F) %>% save_plot(., "./asthma_multimorbidities/plots/lmap_lvl1234_string_heatmap.pdf", 6, 3.5)
+
+#PROPER
+#The only enriched trait is BMI, level3
+# asthma_bootstrapped_interactions %>% dplyr::filter(level=="level3",tissue=="lung", ppin_db=="PROPER") %>% plot_heatmap(., 0,FALSE,FALSE, 8,7,T,T)
+
+```
+
+#bmap
+```{r}
+asthma_bootstrapped_interactions %>% dplyr::filter(level=="level0",tissue=="blood", is.na(ppin_db)) %>% plot_heatmap(., 3,30,30, 8,7, T, T)  %>% save_plot(., "./asthma_multimorbidities/plots/bmap_lvl0_heatmap_eqtls>3.pdf", 12, 10)
+
+#bmap combining string results L1 L2 L3
+bmap_lvl123_string<-asthma_bootstrapped_interactions %>% dplyr::filter(level=="level1",tissue=="blood", ppin_db=="STRING") %>% 
+  rbind(asthma_bootstrapped_interactions %>% dplyr::filter(level=="level2",tissue=="blood", ppin_db=="STRING")) %>% 
+  rbind(asthma_bootstrapped_interactions %>% dplyr::filter(level=="level3",tissue=="blood", ppin_db=="STRING")) %>% dplyr::mutate(trait=as.factor(trait))
+
+#order from level1 to level3
+bmap_lvl123_string$trait <-
+  factor(
+    bmap_lvl123_string$trait,
+    levels = c("Urinary potassium excretion","Monocyte percentage of white cells", "Cortical surface area (global PC1)", "Serum folate levels", "Post bronchodilator FEV1 in COPD"))
+
+#level 1to3
+bmap_lvl123_string %>% plot_heatmap(., 0, FALSE,FALSE, 8,7, F,F)  %>% save_plot(., "./asthma_multimorbidities/plots/bmap_lvl123_string_heatmap.pdf", 11, 2.5)
+
+#level4
+asthma_bootstrapped_interactions %>% dplyr::filter(level=="level4",tissue=="blood", ppin_db=="STRING") %>% plot_heatmap(., 2, 10,20, 8,7,T,T)  %>% save_plot(., "./asthma_multimorbidities/plots/bmap_lvl4_string_heatmap_eqtls>2.pdf", 12, 2.5)
+
+#PROPER
+#Combine L1 and L2
+# asthma_bootstrapped_interactions %>% dplyr::filter(level=="level1",tissue=="blood", ppin_db=="PROPER") %>%
+#   rbind( asthma_bootstrapped_interactions %>% dplyr::filter(level=="level2",tissue=="blood", ppin_db=="PROPER"))  %>% plot_heatmap(., 1,FALSE,FALSE, 6,5,F,F)  %>% save_plot(., "./asthma_multimorbidities/plots/bmap_lvl12_proper_heatmap_eqtls>1.pdf", 12,1.5)
+#No results for level3 in proper
+#No results for level4 in proper
+```
+
+#DISGENET
+#use query_disgenet.py to obtain disease-gene associations of genes identified at each level. Bmap level 1 string and lung maps level 2 string returned no results.
+```{r DisGeNet }
+# dga_results<- vroom("./asthma_multimorbidities/scripts/disgenet/lvl0_bmap/dga_results.txt", delim="\t", col_names= T) %>% mutate(level = "level0", tissue="blood", ppin_db =NA) %>%
+#   rbind( vroom("./asthma_multimorbidities/scripts/disgenet/lvl2_bmap/dga_results.txt", delim="\t", col_names= T) %>% mutate(level = "level2", tissue="blood", ppin_db ="STRING")) %>%
+#   rbind( vroom("./asthma_multimorbidities/scripts/disgenet/lvl3_bmap/dga_results.txt", delim="\t", col_names= T) %>% mutate(level = "level3", tissue="blood", ppin_db ="STRING"))%>%
+#   rbind( vroom("./asthma_multimorbidities/scripts/disgenet/lvl4_bmap/dga_results.txt", delim="\t", col_names= T) %>% mutate(level = "level4", tissue="blood", ppin_db ="STRING"))  %>%
+#   rbind(
+#  vroom("./asthma_multimorbidities/scripts/disgenet/lvl1_bmap_proper/dga_results.txt", delim="\t", col_names= T) %>% mutate(level = "level1", tissue="blood", ppin_db ="PROPER"))  %>%
+#   rbind(
+#  vroom("./asthma_multimorbidities/scripts/disgenet/lvl2_bmap_proper/dga_results.txt", delim="\t", col_names= T) %>% mutate(level = "level2", tissue="blood", ppin_db ="PROPER")) %>%
+#   rbind( vroom("./asthma_multimorbidities/scripts/disgenet/lvl3_bmap_proper/dga_results.txt", delim="\t", col_names= T) %>% mutate(level = "level3", tissue="blood", ppin_db ="PROPER")) %>%
+#   rbind( vroom("./asthma_multimorbidities/scripts/disgenet/lvl4_bmap_proper/dga_results.txt", delim="\t", col_names= T) %>% mutate(level = "level4", tissue="blood", ppin_db ="PROPER")) %>%
+# 
+#   #COMBINE LUNG RESULTS
+#   rbind(vroom("./asthma_multimorbidities/scripts/disgenet/lvl0_lmap/dga_results.txt", delim="\t", col_names= T) %>% mutate(level = "level0", tissue="lung", ppin_db =NA)) %>%
+#   rbind( vroom("./asthma_multimorbidities/scripts/disgenet/lvl1_lmap/dga_results.txt", delim="\t", col_names= T) %>% mutate(level = "level1", tissue="lung", ppin_db ="STRING")) %>%
+#   rbind( vroom("./asthma_multimorbidities/scripts/disgenet/lvl3_lmap/dga_results.txt", delim="\t", col_names= T) %>% mutate(level = "level3", tissue="lung", ppin_db ="STRING")) %>%
+#   rbind( vroom("./asthma_multimorbidities/scripts/disgenet/lvl4_lmap/dga_results.txt", delim="\t", col_names= T) %>% mutate(level = "level4", tissue="lung", ppin_db ="STRING")) %>%
+#   rbind( vroom("./asthma_multimorbidities/scripts/disgenet/lvl1_lmap_proper/dga_results.txt", delim="\t", col_names= T) %>% mutate(level = "level1", tissue="lung", ppin_db ="PROPER")) %>%
+#   rbind( vroom("./asthma_multimorbidities/scripts/disgenet/lvl2_lmap_proper/dga_results.txt", delim="\t", col_names= T) %>% mutate(level = "level2", tissue="lung", ppin_db ="PROPER")) %>%
+#   rbind( vroom("./asthma_multimorbidities/scripts/disgenet/lvl3_lmap_proper/dga_results.txt", delim="\t", col_names= T) %>% mutate(level = "level3", tissue="lung", ppin_db ="PROPER")) %>%
+#   rbind(vroom("./asthma_multimorbidities/scripts/disgenet/lvl4_lmap_proper/dga_results.txt", delim="\t", col_names= T) %>% mutate(level = "level4", tissue="lung", ppin_db ="PROPER")) %>% distinct()
+# 
+# write.table(dga_results, "./asthma_multimorbidities/results/dga_combined_results.txt", sep="\t", quote= F, col.names=T , row.names = F)
+```
+
+#disease mappings table from Disgenet
+```{r}
+disease_mappings_icd10 <- vroom("./asthma_multimorbidities/data/disease_mappings.tsv.gz", delim="\t", col_names= T) %>% dplyr::rename("diseaseid"=diseaseId) %>% dplyr::filter(vocabulary=="ICD10") %>% 
+  dplyr::select(-vocabularyName) %>% distinct() %>%
+    mutate(code = strsplit(as.character(code), "-")) %>%
+    unnest(code)
+```
+
+```{r}
+dga <- vroom("./asthma_multimorbidities/results/dga_combined_results.txt", delim="\t") %>% dplyr::select(-ei, -year_final, -score, -uniprotid, -disease_type, -gene_dpi, -year_initial, -gene_pli, -disease_class, -gene_dsi, -protein_class_name, -disease_semantic_type, -disease_class_name, -protein_class, -el, -source) %>% distinct()
+
+#306 diseaseids, 35 genes
+dga %>% dplyr::select(diseaseid) %>% distinct()
+dga %>% dplyr::select(gene_symbol) %>% distinct()
+
+#disease ids with icd10
+dga_mapped<- disease_mappings_icd10 %>% #Icd 10 codings seperate category and subcategory with decimal point. We're only interested in category
+  mutate(threedigit=gsub("\\..*","", disease_mappings_icd10$code)) %>% inner_join(dga, by="diseaseid") %>% dplyr::select(-name) %>% distinct()
+
+#57 disease ids (53 three digit icd10s)
+dga_mapped %>% dplyr::select(diseaseid) %>% distinct()
+dga_mapped %>% dplyr::select(threedigit) %>% distinct()
+```
+
+```{r}
+asthma_cleaned_comorbidity_res <- vroom("./asthma_multimorbidities/results/asthma_comorbidity_results.txt", delim="\t", col_names= T) %>%
+    mutate(odds_ratio_ci = str_replace_all(`95%confidenceInterval`, "[\\(  \\)]", "" ), `95%confidenceInterval` = NULL) %>% 
+    separate(odds_ratio_ci, c("lower", "upper"), sep = ",") %>%
+    mutate(log10_or_lower = log(as.numeric(lower)),
+           log10_or_upper = log(as.numeric(upper)),
+           log10_or = log(oddsRatio)) %>%
+    filter(!(log10_or_lower < 0 & log10_or_upper > 0) & correctedPvalue < 0.05) %>% dplyr::select(-descShort, -descLong, -lower, -upper, -major, -chapter, -subchapter)
+
+#194 icd10 am 3 digit
+asthma_cleaned_comorbidity_res %>% dplyr::select(threedigit) %>% distinct()
+```
+
+# convert to ICD-10 to ICD-10-AM 
+```{r}
+ihpa_map_icd10_to10am<- vroom("./asthma_multimorbidities/data/icd10_to_icd10am/ICD-10 to ICD-10-AM 11th Ed maps A00-V99.txt", delim=",") %>% rbind(vroom("./asthma_multimorbidities/data/icd10_to_icd10am/ICD-10 to ICD-10-AM 11th Ed maps W00-X29.txt", delim=",")) %>% rbind( vroom("./asthma_multimorbidities/data/icd10_to_icd10am/ICD-10 to ICD-10-AM 11th Ed maps X30-X99.txt", delim=",")) %>% rbind( vroom("./asthma_multimorbidities/data/icd10_to_icd10am/ICD-10 to ICD-10-AM 11th Ed maps Y00-Z99.txt", delim=",")) %>% dplyr::select(-Counter) 
+# place<- vroom("./asthma_multimorbidities/data/icd10_to_icd10am/ICD-10 to ICD-10-AM 11th Ed maps Place=.txt", delim=",")
+
+dga_to_icd10am<-ihpa_map_icd10_to10am %>% dplyr::rename("code" = `ICD-10 code`)%>%  inner_join(dga_mapped, by="code")  %>% dplyr::select(code, "ICD-10 code descriptor", "ICD-10-AM Map", "ICD-10-AM code descriptor", diseaseid, geneid, gene_symbol, level, tissue,ppin_db, disease_name) %>% distinct() 
+
+dga_to_icd10am<- dga_to_icd10am %>% mutate(threedigit=gsub("\\..*","", dga_to_icd10am$`ICD-10-AM Map`)) %>%  mutate("ICD-10-AM Map"=gsub("\\.","", dga_to_icd10am$`ICD-10-AM Map`)) 
+
+#45 icd10am
+dga_to_icd10am %>% dplyr::select(threedigit) %>% distinct()
+
+idi_dga_overlap<- asthma_cleaned_comorbidity_res %>% inner_join(dga_to_icd10am, by="threedigit") %>% distinct()
+
+#9 common three digits representing 11 DisGenet disease ids/disease names
+idi_dga_overlap %>% dplyr::select(threedigit) %>% distinct()
+idi_dga_overlap %>% dplyr::select(diseaseid) %>% distinct() 
+# 
+# idi_dga_overlap_short <- idi_dga_overlap %>% dplyr::select(-disAcode, -disBcode, -disB, -fisher, -relativeRisk, -phi, -expect, -score, -sumRank, -geneid, -level, -ppin_db) %>% distinct()
+```
+
+```{r}
+idi_dga_overlap_lung <-idi_dga_overlap %>% filter(tissue=="lung")
+idi_dga_overlap_blood <- idi_dga_overlap %>% filter(tissue=="blood")
+```
+
+```{r}
+options(repr.plot.width = 6, repr.plot.height = 14)
+idi_dga_overlap %>% 
+  dplyr::select(-disAcode, -disBcode, -disB, -fisher, -relativeRisk, -phi, -expect, -score, -sumRank, -geneid, -level, -ppin_db) %>%
+    distinct() %>%
+    ggplot(aes(x = fct_reorder(disease_name, log10_or), y = log10_or))+
+    geom_pointrange(aes(ymin = log10_or_lower, ymax = log10_or_upper), alpha = 0.5)+
+    geom_hline(yintercept = 0, colour = "red", linetype = "dashed")+    
+    coord_flip()+
+    theme_minimal()+
+    labs(x = "Conditions", y = expression(Log[10]~"(Odds ratio)"))
+ggsave("./asthma_multimorbidities/plots/comorbidity_idi_bmap_lmap.pdf", width = 4, height =5, useDingbats=FALSE)
+```
+
+```{r}
+#dga_count <- idi_comorbidity_res %>% dplyr::select(gene_symbol, disease_name, diseaseid, level, tissue, code) %>% distinct() %>% dplyr::count(disease_name, level, code, name = "n_gene")
+
+idi_dga_overlap_short<- idi_dga_overlap %>% dplyr::select(gene_symbol, disease_name, diseaseid, level, tissue, code, ppin_db, log10_or) %>% mutate(disease_name = as.factor(disease_name)) 
+```
+
+#load eqtl data for the relevant levels (level 2 (proper), 3 (string), and 4 (string) blood, and levels 2 (proper) and 3 (string) lung  )
+```{r}
+#bmap_lvl2_proper
+eqtl_data<-vroom("./asthma_multimorbidities/results/multimorbid3D_run/bmap_proper/level2_sig_interactions.txt",  delim="\t") %>% dplyr::select(snp, gene) %>% mutate(level="level2", tissue="blood") %>% 
+  
+  #bmap_lvl3_string
+  rbind(vroom("./asthma_multimorbidities/results/multimorbid3D_run/bmap/level3_sig_interactions.txt",  delim="\t") %>% dplyr::select(snp, gene) %>% mutate(level="level3", tissue="blood")) %>% 
+
+  #bmap_lvl4_string
+  rbind(vroom("./asthma_multimorbidities/results/multimorbid3D_run/bmap/level4_sig_interactions.txt",  delim="\t") %>% dplyr::select(snp, gene) %>% mutate(level="level4", tissue="blood")) %>% 
+
+  #lmap_lvl2_proper
+  rbind(vroom("./asthma_multimorbidities/results/multimorbid3D_run/lmap_proper/level2_sig_interactions.txt",  delim="\t") %>% dplyr::select(snp, gene)%>% mutate(level="level2", tissue="lung")) %>% 
+
+  #lmap_lvl3_string
+  rbind(vroom("./asthma_multimorbidities/results/multimorbid3D_run/lmap/level3_sig_interactions.txt",  delim="\t") %>% dplyr::select(snp, gene)%>% mutate(level="level3", tissue="lung")) %>% distinct()
+```
+
+#plot heatmap
+```{r}
+heatmap_table <- idi_dga_overlap_short %>% dplyr::rename("gene"="gene_symbol") %>% inner_join(eqtl_data, by=c("tissue", "level", "gene")) %>% dplyr::select(-ppin_db, -diseaseid, disease_name) %>% distinct() %>% mutate(gene=as.factor(gene)) %>% mutate(level=as.factor(level))
+
+heatmap_table$gene <-
+  factor(
+    heatmap_table$gene,
+    levels = c(
+      "TBCD",
+      "ETV6",
+      "PML",
+      "GAA",
+      "CYB5R3",
+      "CLOCK",
+      "SDCCAG8",
+      "TNFSF15"
+    )
+  )
+ 
+heatmap_table<- heatmap_table  %>% dplyr::count(gene, level, name="n_eqtls") %>% pivot_wider(names_from = "level", values_from = "n_eqtls") %>% column_to_rownames("gene") %>% replace(is.na(.), 0) %>% dplyr::relocate("level2", "level3", "level4")
+  
+heatmap <-pheatmap(heatmap_table,
+                #   cellwidth = 3, 
+                 #   border_color= "#dedcdc",
+                treeheight_row = F,
+                treeheight_col = F,
+              #     fontsize_row=fontsizerow, 
+               #    fontsize_col=fontsizecol,
+               # border_color = NA,
+               cluster_rows=F,
+               cluster_cols=F,
+                col=colorRampPalette(c("#f0f0f0","#440154FF", "#481567FF", "#482677FF", "#453781FF", "#404788FF" ,"#39568CFF" ,"#33638DFF", "#2D708EFF" ,"#287D8EFF" ,"#238A8DFF" ,"#1F968BFF" ,"#20A387FF", "#29AF7FFF" ,"#3CBB75FF" ,"#55C667FF" ,"#73D055FF", "#95D840FF", "#B8DE29FF","#DCE319FF","#FDE725FF"))(100))
+
+heatmap %>% save_plot(., "./asthma_multimorbidities/plots/idi_comorb_heatmap.pdf", 3, 4)
+
+
+```
+
+#Drug repurposing analysis
+#Find level genes in the druggable geneome 
+```{r druggable genome}
+asthma_bootstrapped_interactions_genes<- vroom("./asthma_multimorbidities/results/asthma_bootstrapped_interactions.txt", delim="\t") %>% dplyr::select(gene) %>% distinct()
+
+druggable_genome<- vroom("./asthma_multimorbidities/data/druggable_genome.txt", delim="\t") %>% dplyr::select(hgnc_names) %>% dplyr::rename(gene="hgnc_names")
+
+druggable_genes<- asthma_bootstrapped_interactions_genes %>% dplyr::filter(gene %in% druggable_genome$gene) %>% mutate(interaction = "druggable_genome")
+
+#genes having known drug targets from dgidb
+drug_gene_targets <- vroom("./asthma_multimorbidities/data/drug_gene_targets.txt", delim="\t") %>% dplyr::select(search_term) %>% distinct() %>%  dplyr::rename(gene = search_term) %>% mutate(interaction = "drug_gene_interaction")
+ 
+#list of genes causally associated with asthma from Valette et al. 
+asthma_MR_genes<- vroom("./asthma_multimorbidities/results/mendelian_randomization.txt", delim="\t")
+
+shared_mr_genes <-asthma_bootstrapped_interactions_genes %>% dplyr::filter(gene %in% asthma_MR_genes$gene) %>% mutate(interaction = "Mendelian Randomization")
+
+druggable_genes_table <- rbind(druggable_genes, drug_gene_targets, shared_mr_genes)
+
+druggable_genes_table<- druggable_genes_table %>%  
+  distinct() %>% 
+  mutate(code="Yes") %>% 
+  pivot_wider(names_from = interaction, values_from= code) %>% replace(is.na(.), "No") 
+
+# write.table(druggable_genes_table, "./asthma_multimorbidities/data/druggable_genes_table.txt", sep="\t", quote= F, col.names=T , row.names = F)
+
+```
